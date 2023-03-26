@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyMarbella</title>
-</head>
+  </head>
 
-<body>
-    <!-- <form name="property-search">
-        <div role="group" aria-labelledby="">
+  <body>
+    <header>
+
+    </header>
+
+
+    <form name="property-search" class="search-form">
+      <!-- <div role="group" aria-labelledby="">
             <label>
                 <input type="radio" name="search-type" value="sale" checked>
                 Sale
@@ -23,58 +27,40 @@
                 <input type="radio" name="search-type" value="long-term-rent">
                 Long Term Rent
             </label>
+        </div> -->
+
+      <details class="multiple-select">
+        <summary>Select multiple areas</summary>
+        <div class="multiple-select__dropdown">
+          <label>
+            <input type="checkbox" hidden name="select" value="Value-1" />
+            <span class="multiple-select__content">Value 1</span>
+          </label>
+          <label>
+            <input type="checkbox" hidden name="select" value="Value-2" />
+            <span class="multiple-select__content">Value 2</span>
+          </label>
+          <label>
+            <input type="checkbox" hidden name="select" value="Value-3" />
+            <span class="multiple-select__content">Value 3</span>
+          </label>
+          <label>
+            <input type="checkbox" hidden name="select" value="Value-4" />
+            <span class="multiple-select__content">Value 4</span>
+          </label>
         </div>
-        <div class="form-location">
-            <label>
-                Alameda
-                <input class="checkbox" type="checkbox" value='alameda' />
-            </label><label>
-                Alcaucín
-                <input class="checkbox" type="checkbox" value='alcaucín' />
-            </label><label>
-                Alfarnate
-                <input class="checkbox" type="checkbox" value='alfarnate' />
-            </label><label>
-                Alfarnatejo
-                <input class="checkbox" type="checkbox" value='alfarnatejo' />
-            </label><label>
-                Algarrobo
-                <input class="checkbox" type="checkbox" value='algarrobo' />
-            </label><label>
-                Algatocin
-                <input class="checkbox" type="checkbox" value='algatocin' />
-            </label><label>
-                Alhaurín de la Torre
-                <input class="checkbox" type="checkbox" value='alhaurín-de-la-torre' />
-            </label><label>
-                Alhaurín el Grande
-                <input class="checkbox" type="checkbox" value='alhaurín-el-grande' />
-            </label><label>
-                Alhaurin Golf
-                <input class="checkbox" type="checkbox" value='alhaurin-golf' />
-            </label><label>
-                Almachar
-                <input class="checkbox" type="checkbox" value='almachar' />
-            </label><label>
-                Almayate
-                <input class="checkbox" type="checkbox" value='almayate' />
-            </label><label>
-                Almogía
-                <input class="checkbox" type="checkbox" value='almogía' />
-            </label><label>
-                Aloha
-                <input class="checkbox" type="checkbox" value='aloha' />
-            </label><label>
-                Alora
-                <input class="checkbox" type="checkbox" value='alora' />
-            </label><label>
-                Alozaina
-                <input class="checkbox" type="checkbox" value='alozaina' />
-            </label>
-        </div>
+      </details>
 
-    </form> -->
+      <input type="submit" class="submit-button" />
+    </form>
 
-</body>
+    <code>
+      <pre class="result">[]</pre>
+    </code>
 
+
+    <footer>
+
+    </footer>
+  </body>
 </html>

@@ -1,6 +1,49 @@
 .form-location {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 // .location-checkbox {}
+
+.multiple-select {
+  display: inline-block;
+  position: relative;
+}
+
+.multiple-select summary {
+  padding: 5px 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+// hide default bug for multiple select arrow
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.multiple-select__dropdown {
+  position: absolute;
+  margin-top: 2px;
+  min-width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.multiple-select label {
+  margin: 0;
+  display: block;
+}
+
+.multiple-select label > input + span {
+  padding: 5px 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.multiple-select label > input:checked + .multiple-select__content {
+  background-color: #bbb;
+}

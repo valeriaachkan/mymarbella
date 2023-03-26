@@ -29,6 +29,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "file-loader": "^6.2.0",
     "modern-normalize": "^1.1.0"
   }
 }

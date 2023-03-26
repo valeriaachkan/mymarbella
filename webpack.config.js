@@ -11,9 +11,8 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(scss|css)$/,
-				include: [__dirname + '/src'],
-				use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+				test: /\.(scss|css|sass)$/,
+				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.js$/,
