@@ -1,0 +1,138 @@
+@import './variables';
+
+@mixin h1() {
+    font-family: $primary-font-family;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+    color: $glsr-white;
+
+    // @media screen and (min-width:$tablet) () {
+
+    // }
+}
+
+@mixin h2() {
+    font-family: $primary-font-family;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+    color: $glsr-white;
+}
+
+@mixin h3() {
+    font-family: $primary-font-family;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+    color: $glsr-white;
+}
+
+@mixin h4-upper() {
+    font-family: $primary-font-family;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: #FFFFFF99;
+}
+
+// @mixin h5() {
+//     font-family: $primary-font-family;
+//     font-weight: 700;
+//     font-size: 20px;
+//     line-height: 1.2;
+//     letter-spacing: -0.015em;
+// }
+
+// @mixin h6() {
+//     font-family: $primary-font-family;
+//     font-weight: 700;
+//     font-size: 16px;
+//     line-height: 1.5;
+//     letter-spacing: -0.015em;
+// }
+
+// @mixin body-l() {
+//     font-family: $primary-font-family;
+//     font-weight: 400;
+//     font-size: 20px;
+//     line-height: 32px;
+// }
+
+@mixin body-r() {
+    font-family: $primary-font-family;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+    color: $glsr-white;
+}
+
+// @mixin body-s() {
+//     font-family: $primary-font-family;
+//     font-weight: 400;
+//     font-size: 14px;
+//     line-height: 1.7;
+// }
+
+// @mixin body-xs() {
+//     font-family: $primary-font-family;
+//     font-weight: 400;
+//     font-size: 12px;
+//     line-height: 2;
+// }
+
+@mixin caption() {
+    font-family: $primary-font-family;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    color: $glsr-white;
+}
+
+// @mixin overline-r() {
+//     font-family: $primary-font-family;
+//     font-weight: 700;
+//     font-size: 14px;
+//     line-height: 1.7;
+//     letter-spacing: 0.04em;
+//     text-transform: uppercase;
+// }
+
+// @mixin overline-s() {
+//     font-family: $primary-font-family;
+//     font-weight: 700;
+//     font-size: 12px;
+//     line-height: 1.3;
+//     letter-spacing: 0.04em;
+//     text-transform: uppercase;
+// }
+
+@mixin link-r() {
+    font-family: $primary-font-family;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: $glsr-white;
+}
+
+// @mixin link-s() {
+//     font-family: $primary-font-family;
+//     font-weight: 600;
+//     font-size: 14px;
+//     line-height: 1.6;
+//     letter-spacing: 0.02em;
+// }
+
+// @mixin link-xs() {
+//     font-family: $primary-font-family;
+//     font-weight: 600;
+//     font-size: 12px;
+//     line-height: 1.3;
+//     letter-spacing: 0.02em;
+// }

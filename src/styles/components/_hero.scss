@@ -1,0 +1,19 @@
+@import '../base/variables';
+@import '../base/placeholders';
+@import '../base/fonts';
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url('/src/images/hero-image.png');
+    background-position: center center;
+    background-size: cover;
+
+    &__container {
+        padding-top: 110px;
+    }
+}
+
+.hero__title {
+    @include h1();
+}
