@@ -1,3 +1,16 @@
+.search-form{
+  border-radius: 100px;
+  background-color: $glsr-gray-100;
+  padding: 15px;
+}
+
+code{ 
+  display: block;
+  border-radius: 100px;
+  background-color: $glsr-gray-100;
+  padding: 15px;
+}
+
 .form-location {
   display: flex;
   flex-direction: column;

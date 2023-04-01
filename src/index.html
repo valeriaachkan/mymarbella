@@ -28,64 +28,49 @@
   <main>
     <section class="hero">
       <div class="container hero__container">
-        <div>
+        <div class="hero__title-wrapper">
           <h1 class="hero__title">Light up your way</h1>
           <h2>With my Marbella</h2>
         </div>
-        <div>Forma</div>
-        <div>
-          <p>ZIRKA REAL ESTATE offers a wide variety of RENTALS, SALES and INVESTMENTS ranging from the beautiful city
-            of Málaga, all the way down to Estepona, focusing on prime locations of Marbella and Puerto Banus.</p>
+        <div class="hero__form-wrapper">
+          <form name="property-search" class="search-form" action="https://webapi.resales-online.com/V6/" method="get">
+            <details class="multiple-select">
+              <summary>Select multiple areas</summary>
+              <div class="multiple-select__dropdown">
+                <label>
+                  <input type="checkbox" hidden name="select" value="Value-1" />
+                  <span class="multiple-select__content">Value 1</span>
+                </label>
+                <label>
+                  <input type="checkbox" hidden name="select" value="Value-2" />
+                  <span class="multiple-select__content">Value 2</span>
+                </label>
+                <label>
+                  <input type="checkbox" hidden name="select" value="Value-3" />
+                  <span class="multiple-select__content">Value 3</span>
+                </label>
+                <label>
+                  <input type="checkbox" hidden name="select" value="Value-4" />
+                  <span class="multiple-select__content">Value 4</span>
+                </label>
+              </div>
+            </details>
+        
+            <input type="submit" class="submit-button">
+          </form>
+        
         </div>
       </div>
     </section>
+
+    <div>
+      <p>ZIRKA REAL ESTATE offers a wide variety of RENTALS, SALES and INVESTMENTS ranging from the beautiful city
+        of Málaga, all the way down to Estepona, focusing on prime locations of Marbella and Puerto Banus.</p>
+    </div>
   </main>
 
 
-  <form name="property-search" class="search-form">
-    <!-- <div role="group" aria-labelledby="">
-            <label>
-                <input type="radio" name="search-type" value="sale" checked>
-                Sale
-            </label>
-            <label>
-                <input type="radio" name="search-type" value="short-term-rent">
-                Short Term Rent
-            </label>
-            <label>
-                <input type="radio" name="search-type" value="long-term-rent">
-                Long Term Rent
-            </label>
-        </div> -->
-
-    <details class="multiple-select">
-      <summary>Select multiple areas</summary>
-      <div class="multiple-select__dropdown">
-        <label>
-          <input type="checkbox" hidden name="select" value="Value-1" />
-          <span class="multiple-select__content">Value 1</span>
-        </label>
-        <label>
-          <input type="checkbox" hidden name="select" value="Value-2" />
-          <span class="multiple-select__content">Value 2</span>
-        </label>
-        <label>
-          <input type="checkbox" hidden name="select" value="Value-3" />
-          <span class="multiple-select__content">Value 3</span>
-        </label>
-        <label>
-          <input type="checkbox" hidden name="select" value="Value-4" />
-          <span class="multiple-select__content">Value 4</span>
-        </label>
-      </div>
-    </details>
-
-    <input type="submit" class="submit-button" />
-  </form>
-
-  <code>
-      <pre class="result">[]</pre>
-    </code>
+  
 
 
   <footer>
