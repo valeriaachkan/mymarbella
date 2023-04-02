@@ -1,0 +1,164 @@
+.search-form{
+  border-radius: 33px;
+  background-color: $white;
+  padding: 25px 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+code{ 
+  display: block;
+  border-radius: 100px;
+  background-color: $gray-100;
+  padding: 15px;
+}
+
+.form-location {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper{
+  margin: 10px 0;
+
+}
+
+// Type Sale / Rent input
+.action-type{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  border-bottom: 1px solid $gray-300;
+
+  input[type="radio"]{
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  label{
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: $gray-400;
+    font-family: $primary-font-family;
+    padding: 5px;
+    transition: border-color 0s ease-in-out 0.5s, color 0.5ms linear;
+
+    &:hover{
+      color: $accent-color;
+      border-bottom: 2px solid  $accent-color;
+    }
+  }
+  
+
+  input[type="radio"]:checked + label{
+    color: $accent-color;
+    border-bottom: 3px solid  $accent-color;
+  }
+}
+
+.form-label{
+  color: $gray;
+  font-size: 14px;
+  font-family: $primary-font-family;
+  line-height: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+
+// .location-checkbox {}
+
+.multiple-select {
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+
+  z-index: 1;
+
+  &[open]{
+    z-index: 500;
+  }
+}
+
+.multiple-select summary {
+  padding: 5px 10px;
+  background-color: inherit;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: $gray-500;
+  font-family: $primary-font-family;
+}
+
+// hide default bug for multiple select arrow
+.multiple-select > summary {
+  list-style: none;
+}
+
+.multiple-select > summary::-webkit-details-marker {
+  display: none;
+}
+
+.multiple-select__dropdown {
+  position: absolute;
+  margin-top: 2px;
+  min-width: 100%;
+  background-color: $white;
+  border-radius: 5px;
+}
+
+.multiple-select__dropdown label {
+  margin: 0;
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: $gray-500;
+  font-family: $primary-font-family;
+}
+
+
+.multiple-select__dropdown label > input + span {
+  padding: 5px 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.multiple-select__dropdown label > input:checked + .multiple-select__content {
+  background-color: $gray-200;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: $gray-900;
+  font-family: $primary-font-family;
+}
+
+.submit-button{
+  padding: 8px 50px;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: $primary-font-family;
+  color: $white;
+  background-color: $accent-color;
+  border-radius: 100px;
+  max-width: 300px;
+  margin: 0 auto;
+  border: none;
+
+  &:hover{
+    background-color: $accent-color-hover;
+    cursor: pointer;
+  }
+}

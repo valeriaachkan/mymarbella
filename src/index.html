@@ -34,28 +34,66 @@
         </div>
         <div class="hero__form-wrapper">
           <form name="property-search" class="search-form" action="https://webapi.resales-online.com/V6/" method="get">
-            <details class="multiple-select">
-              <summary>Select multiple areas</summary>
-              <div class="multiple-select__dropdown">
-                <label>
-                  <input type="checkbox" hidden name="select" value="Value-1" />
-                  <span class="multiple-select__content">Value 1</span>
-                </label>
-                <label>
-                  <input type="checkbox" hidden name="select" value="Value-2" />
-                  <span class="multiple-select__content">Value 2</span>
-                </label>
-                <label>
-                  <input type="checkbox" hidden name="select" value="Value-3" />
-                  <span class="multiple-select__content">Value 3</span>
-                </label>
-                <label>
-                  <input type="checkbox" hidden name="select" value="Value-4" />
-                  <span class="multiple-select__content">Value 4</span>
-                </label>
-              </div>
-            </details>
-        
+            <div class="input-wrapper action-type">
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_1" value="1" checked>
+              <label for="p_agency_filterid_1">Buy</label>
+
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_2" value="2">
+              <label for="p_agency_filterid_2">Short Rent</label>
+
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_3" value="3">
+              <label for="p_agency_filterid_3">Long Rent</label>
+            </div>
+            <div class="input-wrapper">
+              <label for="multiple-select" class="form-label">Location</label>
+              <details class="multiple-select">
+                <summary>Select Locations</summary>
+                <div class="multiple-select__dropdown">
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-1" />
+                    <span class="multiple-select__content">Kyiv</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-2" />
+                    <span class="multiple-select__content">Mariupol</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-3" />
+                    <span class="multiple-select__content">Crimea</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-4" />
+                    <span class="multiple-select__content">Zakarpatya</span>
+                  </label>
+                </div>
+              </details>
+            </div>
+            
+            <div class="input-wrapper">
+              <label for="multiple-select" class="form-label">Dublicate</label>
+              <details class="multiple-select">
+                <summary>Select</summary>
+                <div class="multiple-select__dropdown">
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-1" />
+                    <span class="multiple-select__content">Kyiv</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-2" />
+                    <span class="multiple-select__content">Mariupol</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-3" />
+                    <span class="multiple-select__content">Crimea</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" hidden name="select" value="Value-4" />
+                    <span class="multiple-select__content">Zakarpatya</span>
+                  </label>
+                </div>
+              </details>
+            </div>
+
             <input type="submit" class="submit-button">
           </form>
         
