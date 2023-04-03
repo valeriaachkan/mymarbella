@@ -19,7 +19,21 @@ code{
 
 .input-wrapper{
   margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
 
+.price-input-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  .input-wrapper{
+    flex-basis: 45%;
+    max-width: 45%;
+  }
 }
 
 // Type Sale / Rent input
@@ -50,16 +64,44 @@ code{
     padding: 5px;
     transition: border-color 0s ease-in-out 0.5s, color 0.5ms linear;
 
+   
+  }
+
+  input[type="radio"] + label{
+    position: relative;
+
+
+    &::after {
+      content: ' ';
+      display: inline-block;
+
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      background-color: $accent-color;
+
+      transform: scale(0);
+      transition: transform 250ms $o-animation-timing-function;
+    }
+
     &:hover{
-      color: $accent-color;
-      border-bottom: 2px solid  $accent-color;
+      &::after {
+        transform: scale(1);
+      }
     }
   }
   
 
   input[type="radio"]:checked + label{
     color: $accent-color;
-    border-bottom: 3px solid  $accent-color;
+  
+    &::after {
+      transform: scale(1);
+    }
   }
 }
 
@@ -73,6 +115,22 @@ code{
   display: inline-block;
 }
 
+.form-input{
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: $gray-100;
+  color: $gray-500;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  border: unset;
+  font-family: $primary-font-family;
+
+  &:focus, &:focus-visible{
+    outline: unset !important;
+  }
+}
 
 // .location-checkbox {}
 
@@ -81,7 +139,6 @@ code{
   position: relative;
   width: 100%;
   border-radius: 8px;
-
   z-index: 1;
 
   &[open]{
@@ -91,13 +148,12 @@ code{
 
 .multiple-select summary {
   padding: 5px 10px;
-  background-color: inherit;
   border-radius: 5px;
-  border: 1px solid #CCCCCC;
   border-radius: 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
+  background-color: $gray-100;
   color: $gray-500;
   font-family: $primary-font-family;
 }
@@ -105,6 +161,10 @@ code{
 // hide default bug for multiple select arrow
 .multiple-select > summary {
   list-style: none;
+
+  &:focus, &:focus-visible{
+    outline: unset !important;
+  }
 }
 
 .multiple-select > summary::-webkit-details-marker {
@@ -113,10 +173,10 @@ code{
 
 .multiple-select__dropdown {
   position: absolute;
-  margin-top: 2px;
+  margin-top: 3px;
   min-width: 100%;
-  background-color: $white;
-  border-radius: 5px;
+  background-color: $gray-100;
+  border-radius: 8px;
 }
 
 .multiple-select__dropdown label {
@@ -145,20 +205,20 @@ code{
   font-family: $primary-font-family;
 }
 
-.submit-button{
-  padding: 8px 50px;
-  font-size: 16px;
-  line-height: 24px;
-  font-family: $primary-font-family;
-  color: $white;
-  background-color: $accent-color;
-  border-radius: 100px;
-  max-width: 300px;
-  margin: 0 auto;
-  border: none;
+.button-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
 
-  &:hover{
-    background-color: $accent-color-hover;
-    cursor: pointer;
+  margin-top: 1rem;
+}
+
+.adv-search-wrapper{
+  display: none;
+
+  &.is-open{
+    
   }
 }
+

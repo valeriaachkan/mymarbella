@@ -1,3 +1,4 @@
+import $ from "jquery";
 
 // function to show submitted multiple selects
 export default function customForm(){
@@ -5,6 +6,8 @@ export default function customForm(){
     const form = document.querySelector('form');
     const detailsElementsArray = document.querySelectorAll('details');
     const summary = document.querySelectorAll('.multiple-select summary');
+    const advSearchButton = $('.adv-search-button');
+    const advSearchWrapper = $('.adv-search-wrapper')
 
 
     form.addEventListener('submit', function (e) {
@@ -15,6 +18,13 @@ export default function customForm(){
 
         // result.innerText = JSON.stringify(formData.getAll('select'), null, 2);
     });
+
+    advSearchButton.on('click', function(e){
+       advSearchWrapper.toggleClass('is-open')
+        advSearchWrapper.slideToggle(500);
+    })
+
+    // $('.adv-search-wrapper')
 
 
     
@@ -74,16 +84,11 @@ export default function customForm(){
              .map((option) => option.nextElementSibling.textContent)
              .join(', ');
 
-            console.log('selectedValues',selectedValues)
-
         if (selectedValues.length === 0) {
-            console.log(0)
-             targetElement.querySelector('summary').textContent = 'Select Locations';
+             targetElement.querySelector('summary').textContent = 'Nothing selected';
         } else if (selectedValues.length <= 2){
-            console.log(1)
             targetElement.querySelector('summary').textContent = selectedValuesText;
         } else {
-            console.log(2)
             targetElement.querySelector('summary').textContent = `Selected ${selectedValues.length} locations`
         }
     }

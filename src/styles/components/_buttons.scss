@@ -1,0 +1,28 @@
+.button{
+    padding: 8px 30px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: $primary-font-family;
+    border-radius: 50px;
+    border:unset;
+    cursor: pointer;
+}
+
+
+.submit-button{
+    color: $white;
+    background-color: $accent-color;
+    max-width: 300px;
+    border: none;
+  
+    &:hover{
+      background-color: $accent-color-hover;
+      cursor: pointer;
+    }
+  }
+  
+  .adv-search-button{
+    padding: 8px 15px;
+    background-color: inherit;
+    border: 1px solid $accent-color;
+  }
