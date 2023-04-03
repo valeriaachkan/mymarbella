@@ -1,0 +1,17 @@
+PropertyTypes :   
+    "Type": "Apartment",
+     "OptionValue": "1-1",
+
+     "Type": "House",
+     "OptionValue": "2-1",
+
+     "Type": "Plot",
+     "OptionValue": "3-1",
+
+      "Type": "Commercial",
+        "OptionValue": "4-1",
+
+
+
+Open questions:
+ - Field Reference ?
