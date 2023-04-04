@@ -1,19 +1,37 @@
-@import '../base/variables';
-@import '../base/placeholders';
-@import '../base/fonts';
-
 .hero {
-    height: 100vh;
-    width: 100%;
-    background-image: url('/src/images/hero-image.png');
-    background-position: center center;
-    background-size: cover;
+  height: 100vh;
+  width: 100%;
+  background-image: url("/src/images/hero-image.png");
+  background-position: center center;
+  background-size: cover;
 
-    &__container {
-        padding-top: 110px;
+  &__container {
+    padding-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: $tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
     }
+  }
+
+  &__title-wrapper {
+    @media screen and (min-width: $tablet) {
+      flex-basis: 60%;
+    }
+  }
+
+  &__form-wrapper {
+    min-width:320px;
+    @media screen and (min-width: $tablet) {
+      flex-basis: 40%;
+    }
+  }
 }
 
 .hero__title {
-    @include h1();
+  @include h1();
 }

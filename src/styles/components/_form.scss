@@ -1,0 +1,224 @@
+.search-form{
+  border-radius: 33px;
+  background-color: $white;
+  padding: 25px 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+code{ 
+  display: block;
+  border-radius: 100px;
+  background-color: $gray-100;
+  padding: 15px;
+}
+
+.form-location {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-input-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  .input-wrapper{
+    flex-basis: 45%;
+    max-width: 45%;
+  }
+}
+
+// Type Sale / Rent input
+.action-type{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  border-bottom: 1px solid $gray-300;
+
+  input[type="radio"]{
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  label{
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: $gray-400;
+    font-family: $primary-font-family;
+    padding: 5px;
+    transition: border-color 0s ease-in-out 0.5s, color 0.5ms linear;
+
+   
+  }
+
+  input[type="radio"] + label{
+    position: relative;
+
+
+    &::after {
+      content: ' ';
+      display: inline-block;
+
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      background-color: $accent-color;
+
+      transform: scale(0);
+      transition: transform 250ms $o-animation-timing-function;
+    }
+
+    &:hover{
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+  
+
+  input[type="radio"]:checked + label{
+    color: $accent-color;
+  
+    &::after {
+      transform: scale(1);
+    }
+  }
+}
+
+.form-label{
+  color: $gray;
+  font-size: 14px;
+  font-family: $primary-font-family;
+  line-height: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.form-input{
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: $gray-100;
+  color: $gray-500;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  border: unset;
+  font-family: $primary-font-family;
+
+  &:focus, &:focus-visible{
+    outline: unset !important;
+  }
+}
+
+// .location-checkbox {}
+
+.multiple-select {
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  z-index: 1;
+
+  &[open]{
+    z-index: 500;
+  }
+}
+
+.multiple-select summary {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: $gray-100;
+  color: $gray-500;
+  font-family: $primary-font-family;
+}
+
+// hide default bug for multiple select arrow
+.multiple-select > summary {
+  list-style: none;
+
+  &:focus, &:focus-visible{
+    outline: unset !important;
+  }
+}
+
+.multiple-select > summary::-webkit-details-marker {
+  display: none;
+}
+
+.multiple-select__dropdown {
+  position: absolute;
+  margin-top: 3px;
+  min-width: 100%;
+  background-color: $gray-100;
+  border-radius: 8px;
+}
+
+.multiple-select__dropdown label {
+  margin: 0;
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: $gray-500;
+  font-family: $primary-font-family;
+}
+
+
+.multiple-select__dropdown label > input + span {
+  padding: 5px 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.multiple-select__dropdown label > input:checked + .multiple-select__content {
+  background-color: $gray-200;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: $gray-900;
+  font-family: $primary-font-family;
+}
+
+.button-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+
+  margin-top: 1rem;
+}
+
+.adv-search-wrapper{
+  display: none;
+
+  &.is-open{
+    
+  }
+}
+

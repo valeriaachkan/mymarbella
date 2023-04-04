@@ -6,7 +6,7 @@
     font-size: 72px;
     line-height: 1.8;
     letter-spacing: -0.02em;
-    color: $glsr-white;
+    color: $white;
 
     // @media screen and (min-width:$tablet) () {
 
@@ -19,7 +19,7 @@
     font-size: 32px;
     line-height: 1.8;
     letter-spacing: -0.02em;
-    color: $glsr-white;
+    color: $white;
 }
 
 @mixin h3() {
@@ -28,7 +28,7 @@
     font-size: 32px;
     line-height: 1.8;
     letter-spacing: -0.02em;
-    color: $glsr-white;
+    color: $white;
 }
 
 @mixin h4-upper() {
@@ -69,7 +69,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.8;
-    color: $glsr-white;
+    color: $white;
 }
 
 // @mixin body-s() {
@@ -91,7 +91,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.8;
-    color: $glsr-white;
+    color: $white;
 }
 
 // @mixin overline-r() {
@@ -118,7 +118,7 @@
     font-size: 16px;
     line-height: 1.6;
     letter-spacing: 0.02em;
-    color: $glsr-white;
+    color: $white;
 }
 
 // @mixin link-s() {
