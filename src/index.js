@@ -1,4 +1,5 @@
 import './styles/main.scss';
+import './js/api-service';
 
 import locs from '../locs.json';
 
