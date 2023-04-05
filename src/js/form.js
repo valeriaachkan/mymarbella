@@ -14,13 +14,11 @@ export default function customForm() {
 		buildFormDataAndSend();
 
 		// console.log(JSON.stringify(formData.getAll('select')));
-
-		// result.innerText = JSON.stringify(formData.getAll('select'), null, 2);
 	});
 
 	advSearchButton.on('click', function (e) {
 		advSearchWrapper.toggleClass('is-open');
-		advSearchWrapper.slideToggle(500);
+		advSearchWrapper.slideToggle(300);
 	});
 
 	// $('.adv-search-wrapper')

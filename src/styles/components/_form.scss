@@ -18,23 +18,11 @@ code{
 }
 
 .input-wrapper{
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   display: flex;
   flex-direction: column;
 }
 
-.price-input-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-
-  .input-wrapper{
-    flex-basis: 45%;
-    max-width: 45%;
-  }
-}
 
 // Type Sale / Rent input
 .action-type{
