@@ -15,3 +15,6 @@ PropertyTypes :
 
 Open questions:
  - Field Reference ?
+ - Contact details is actual? (info@mymarbella.co) - com?
+ - Social medias for contact info
+ - More property photo for gallery
