@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="./images/cropped-logo.png">
   <title>MyMarbella</title>
 </head>
 
@@ -120,16 +121,43 @@
                   </div>
                 </details>
               </div>
-              <div class="price-input-wrapper">
                 <div class="input-wrapper">
-                  <label for="P_Min" class="form-label">Price Min</label>
-                  <input class="form-input" type="number" name="P_Min" id="P_Min" min="0">
+                  <label for="multiple-select" class="form-label">Price Range</label>
+                  <details class="multiple-select">
+                    <summary>Select Something</summary>
+                    <div class="multiple-select__dropdown">
+                      <label>
+                        <input type="checkbox" hidden name="select" value="" />
+                        <span class="multiple-select__content">Any</span>
+                      </label>
+
+                      <label>
+                        <input type="checkbox" hidden name="select" value="P_Min=100&P_Max=500" />
+                        <span class="multiple-select__content">€100 - €500</span>
+                      </label>
+
+                      <label>
+                        <input type="checkbox" hidden name="select" value="P_Min=500&P_Max=1000" />
+                        <span class="multiple-select__content">€500 - €1000</span>
+                      </label>
+
+                      <label>
+                        <input type="checkbox" hidden name="select" value="P_Min=1000&P_Max=5000" />
+                        <span class="multiple-select__content">€1000 - €2000</span>
+                      </label>
+
+                      <label>
+                        <input type="checkbox" hidden name="select" value="P_Min=100&P_Max=500" />
+                        <span class="multiple-select__content">€1000 - €2000</span>
+                      </label>
+
+                      <label>
+                        <input type="checkbox" hidden name="select" value="Value-4" />
+                        <span class="multiple-select__content">€1000 - €2000</span>
+                      </label>
+                    </div>
+                  </details>
                 </div>
-                <div class="input-wrapper">
-                  <label for="P_Max" class="form-label">Price Max</label>
-                  <input class="form-input" type="number" name="P_Max" id="P_Max" max="999999999">
-                </div>
-              </div>
             </div>
 
 
