@@ -1,37 +1,115 @@
 .hero {
-  height: 100vh;
-  width: 100%;
-  background-image: url("/src/images/hero-image.png");
-  background-position: center center;
-  background-size: cover;
+    min-height: calc(100vh - 140px);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background-color: $secondary-bc-color;
+    background-image: url("/src/images/hero-image.png");
+    background-position: 33% top;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-  &__container {
-    padding-top: 110px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @media screen and (max-width: 767px) {
+        max-height: 850px;
+
+    }
 
     @media screen and (min-width: $tablet) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-  }
+        height: 100vh;
 
-  &__title-wrapper {
-    @media screen and (min-width: $tablet) {
-      flex-basis: 60%;
     }
-  }
 
-  &__form-wrapper {
-    min-width:320px;
-    @media screen and (min-width: $tablet) {
-      flex-basis: 40%;
+    &__container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        z-index: 3;
+
+        @media screen and (min-width: $tablet) {
+            display: grid;
+            grid-template-columns: 1.3fr 50px 1fr;
+            grid-template-rows: 20px 2fr 20px 1fr;
+            grid-template-areas: "title . form" "text . none";
+            justify-items: start;
+            align-items: end;
+
+            padding-top: 110px;
+        }
     }
-  }
+
+    &__title-wrapper {
+
+        @media screen and (min-width: $tablet) {
+            grid-column: 1;
+            grid-row: 2 / 3;
+        }
+    }
+
+    &__form-wrapper {
+        min-width: 320px;
+        max-width: 370px;
+        margin: 0 auto;
+        margin-top: 30px;
+
+
+        @media screen and (min-width: $tablet) {
+            width: 100%;
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+            // place-self: center;
+        }
+    }
+
+    &__content-wrapper {
+        display: none;
+
+        @media screen and (min-width: $tablet) {
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 4 / 5;
+            place-self: center;
+
+        }
+    }
+
+    &__background {
+        @media screen and (min-width: $tablet) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            height: 25%;
+            width: 100%;
+            background-color: $secondary-bc-color;
+
+        }
+    }
 }
 
+
+
 .hero__title {
-  @include h1();
+    @include h1();
+    text-align: center;
+
+    @media screen and (max-width: 767px) {
+        font-size: 60px;
+        line-height: 1.2;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+.hero__caption {
+    @include h2();
+    text-align: center;
+    font-size: 25px;
+
+    @media screen and (min-width: $tablet) {
+        @include h2();
+        text-align: left;
+    }
+}
+
+.hero__text {
+    @include body-r();
 }
