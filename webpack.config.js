@@ -1,52 +1,69 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-module.exports = {
-	entry: './src/index.js',
-	devtool: 'eval-source-map',
-	output: {
-		path: path.resolve(__dirname, './dist'),
-		filename: 'bundle.js',
-	},
-	module: {
-		rules: [
-			{
-				test: /\.(scss|css|sass)$/,
-				use: ['style-loader', 'css-loader', 'sass-loader'],
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: ['babel-loader'],
-			},
-			{
-				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-				type: 'asset/resource',
-			},
-			{
-				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-				type: 'asset/inline',
-			},
-		],
-	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'src/index.html',
-			minify: {
-				collapseWhitespace: true,
-				removeComments: true,
-				removeRedundantAttributes: true,
-				removeScriptTypeAttributes: true,
-				removeStyleLinkTypeAttributes: true,
-				useShortDoctype: true,
-			},
-		}),
-	],
-	devServer: {
-		static: {
-			directory: path.join(__dirname, 'src'),
+module.exports = [
+  {
+    // Server-side configuration
+    entry: './src/server.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'server.bundle.js'
+    },
+    target: 'node',
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        }
+      ]
+    },
+    optimization: {
+      minimize: false
+    }
+  },
+  {
+    // Client-side configuration
+    entry: './src/index.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
+    },
+    target: 'web',
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        },
+		{
+			test: /\.(scss|css|sass)$/,
+			use: ['style-loader', 'css-loader', 'sass-loader'],
 		},
-		compress: true,
-		port: 8000,
-	},
-};
+		{
+			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+			type: 'asset/resource',
+		},
+		{
+			test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+			type: 'asset/inline',
+		},
+      ]
+    },
+    optimization: {
+      minimize: true
+    }
+  }
+];

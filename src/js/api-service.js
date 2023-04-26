@@ -1,5 +1,6 @@
 // import axios from 'axios';
 
+
 export default class ResalesOnlineApi {
 	#p1;
 	#p2;
@@ -7,12 +8,12 @@ export default class ResalesOnlineApi {
 
 	constructor() {
 		this.#p1 = '1014905';
-		this.#p2 = '03ca0745e539d0304361b3187c3b36ae598c38a1';
+		this.#p2 = 'e599237279274f635942f36d155c226f2cc1f131';
 		this.#baseUrl = 'https://webapi.resales-online.com/V6/SearchProperties';
-		this.headers = {
-			'Access-Control-Allow-Origin': 'https://backend.resales-online.com',
-			'Content-Type': 'application/json',
-		};
+		// this.headers = {
+		// 	'Access-Control-Allow-Origin': 'https://backend.resales-online.com',
+		// 	'Content-Type': 'application/json',
+		// };
 		// this.P_Currency = 'EUR';
 		this.p_PageSize = '20'; //Amount of properties returned. Default: 10. Max. value:40
 		this.page = 1; //Page number of the search results to be returned. Default:1
