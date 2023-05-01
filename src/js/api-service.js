@@ -9,10 +9,10 @@ export default class ResalesOnlineApi {
 		this.#p1 = '1014905';
 		this.#p2 = 'ca3ca58bbda23243ae3ed9e97098099d7fff44d7';
 		this.#baseUrl = 'https://booking-bff-test.up.railway.app/searchProperties';
-		// this.headers = {
-		// 	'Access-Control-Allow-Origin': 'https://backend.resales-online.com',
-		// 	'Content-Type': 'application/json',
-		// };
+		this.headers = {
+			'Access-Control-Allow-Origin': 'https://backend.resales-online.com',
+			'Content-Type': 'application/json',
+		};
 		this.P_Currency = 'EUR';
 		this.p_PageSize = '20'; //Amount of properties returned. Default: 10. Max. value:40
 		this.page = 1; //Page number of the search results to be returned. Default:1
@@ -28,14 +28,13 @@ export default class ResalesOnlineApi {
 	async fetchProperties(params) {
 		const requestOptions = {
 			method: 'GET',
-			// redirect: 'follow',
-			// mode: 'no-cors',
-			// ...this.headers,
+			...this.headers,
 		};
+
 		const searchParams = new URLSearchParams({
 			p1: this.#p1,
 			p2: this.#p2,
-			// headers: this.headers,
+			headers: this.headers,
 			p_sandbox: true,
 			p_PageSize: this.p_PageSize,
 			p_PageNo: this.page,
