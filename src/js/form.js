@@ -5,12 +5,22 @@ export default function customForm() {
 	const detailsElementsArray = document.querySelectorAll('details');
 	const advSearchButton = $('.adv-search-button');
 	const advSearchWrapper = $('.adv-search-wrapper');
+	const actionInputs = $('[name="p_agency_filterid"]');
+	console.log(actionInputs)
 
 	// toggle advanced search function
 	advSearchButton.on('click', function (e) {
 		advSearchWrapper.toggleClass('is-open');
 		advSearchWrapper.slideToggle(300);
 	});
+
+	// 'checked' toggle listener for form action type (sale / rent)
+	actionInputs.on('click', function(e){
+		const clickedInput = e.target;
+		Array.from(actionInputs).forEach(input => input.removeAttribute('checked'))
+		clickedInput.setAttribute('checked', '')
+	})
+
 
 	// listener for custom select elements
 	if (detailsElementsArray.length > 0) {

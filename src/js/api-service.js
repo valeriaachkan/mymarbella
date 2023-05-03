@@ -34,7 +34,7 @@ export default class ResalesOnlineApi {
 		const searchParams = new URLSearchParams({
 			p1: this.#p1,
 			p2: this.#p2,
-			headers: this.headers,
+			// headers: this.headers,
 			p_sandbox: true,
 			p_PageSize: this.p_PageSize,
 			p_PageNo: this.page,
