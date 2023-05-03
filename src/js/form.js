@@ -1,28 +1,28 @@
 import $ from 'jquery';
 
-// function to show submitted multiple selects
 export default function customForm() {
-	// function to close details on click elsewhere
 	const form = document.querySelector('form');
 	const detailsElementsArray = document.querySelectorAll('details');
-	const summary = document.querySelectorAll('.multiple-select summary');
 	const advSearchButton = $('.adv-search-button');
 	const advSearchWrapper = $('.adv-search-wrapper');
+	const actionInputs = $('[name="p_agency_filterid"]');
+	console.log(actionInputs)
 
-	form.addEventListener('submit', function (e) {
-		e.preventDefault();
-		buildFormDataAndSend();
-
-		// console.log(JSON.stringify(formData.getAll('select')));
-	});
-
+	// toggle advanced search function
 	advSearchButton.on('click', function (e) {
 		advSearchWrapper.toggleClass('is-open');
 		advSearchWrapper.slideToggle(300);
 	});
 
-	// $('.adv-search-wrapper')
+	// 'checked' toggle listener for form action type (sale / rent)
+	actionInputs.on('click', function(e){
+		const clickedInput = e.target;
+		Array.from(actionInputs).forEach(input => input.removeAttribute('checked'))
+		clickedInput.setAttribute('checked', '')
+	})
 
+
+	// listener for custom select elements
 	if (detailsElementsArray.length > 0) {
 		detailsElementsArray.forEach((targetDetail) => {
 			document.addEventListener('click', function (e) {
@@ -38,39 +38,13 @@ export default function customForm() {
 		});
 	}
 
-	function buildFormDataAndSend() {
-		const scope = this;
-
-		function makeRequest() {
-			const formData = new FormData(form);
-			const requestOptions = {
-				method: 'GET',
-				p2: '03ca0745e539d0304361b3187c3b36ae598c38a1',
-				p1: '1014905',
-				mode: 'no-cors',
-			};
-
-			fetch('https://webapi.resales-online.com/V6/', requestOptions)
-				.then((response) => response.json())
-				.then((result, error) => {
-					if (result.statusCode === 400 || error) {
-						console.log(error);
-						// notification()
-					} else {
-						// success()
-					}
-				});
-		}
-
-		makeRequest();
-	}
-
 	function updateSummary(targetElement) {
 		const options = targetElement.querySelectorAll('input[type=checkbox]');
 
 		const selectedValues = Array.from(options)
 			.filter((option) => option.checked)
-			.map((option) => option.nextElementSibling);
+			.map((option) => option.nextElementSibling)
+			.map((option) => option.setAttribute('checked' , ''))
 		const selectedValuesText = Array.from(options)
 			.filter((option) => option.checked)
 			.map((option) => option.nextElementSibling.textContent)
