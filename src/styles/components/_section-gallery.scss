@@ -1,0 +1,25 @@
+.section-gallery {
+    background-color: $secondary-bc-color;
+
+    @media screen and (min-width: $tablet) {
+        padding-top: 100px;
+    }
+}
+
+.section__title--gallery {
+    display: none;
+
+    @media screen and (min-width: $tablet) {
+        display: block;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+.gallery__img {
+    @extend %image;
+
+    @media screen and (max-width: 767px) {
+        width: 100vw;
+    }
+}

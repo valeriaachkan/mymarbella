@@ -1,7 +1,9 @@
 import $, { type } from 'jquery';
 import './styles/main.scss';
+import './js/slider.js';
 import ResalesOnlineApi from './js/api-service';
 import customForm from './js/form.js';
+import renderPropertyList from './js/render-property-list';
 
 const APIRequest = new ResalesOnlineApi();
 const form = document.querySelector('form');
@@ -10,34 +12,55 @@ const form = document.querySelector('form');
 customForm();
 
 // custom submit function
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
+form.addEventListener('submit', onFormSubmit);
 
-    const query = setQueryParameter();
+async function onFormSubmit(e) {
+	e.preventDefault();
+	const query = setQueryParameter();
 
-    APIRequest.fetchProperties(...query, {P_Location:'Alicante'});
-});
+	const data = await APIRequest.fetchProperties(...query, {
+		P_Location: 'Alicante',
+	});
+	console.log(data.Property);
+	const propertylist = data.Property;
+	// renderPropertyList(data);
 
-function setQueryParameter(){
-    const queryParameter = [];
-    const formProperties =form.querySelectorAll('[checked]');
-    console.log('formProperties', formProperties);
-    Array.from(formProperties).forEach(option=>{
-        // if option 'checked' and started from 'form-' - this is query parameter
-        if (option.hasAttribute('checked') && [...option.attributes].some(attr => attr.name.startsWith('form-'))){
-            console.log('option in checked and attribute:',option)
-            const formAttr = [...option.attributes].find(attr => attr.name.startsWith('form-'));
-            if (formAttr) {
-                // push query parameter name and value to array 'query parameter'
-                const formattedQuery = `{"${formAttr.name.substring(5)}":"${formAttr.value}"}`;
-                queryParameter.push(JSON.parse(formattedQuery));
-            }
-        }
-    })
+	// window.localStorage.setItem('propeties', JSON.stringify(propertylist));
+	// window.location.href = 'propertyList.html';
 
-    console.log('queryParameter', queryParameter)
+	// const url = `propertyList.html?data=${encodeURIComponent(
+	// 	JSON.stringify(propertylist)
+	// )}`;
+	// window.location.href = url;
+}
 
-    return queryParameter;
+function setQueryParameter() {
+	const queryParameter = [];
+	const formProperties = form.querySelectorAll('[checked]');
+	console.log('formProperties', formProperties);
+	Array.from(formProperties).forEach((option) => {
+		// if option 'checked' and started from 'form-' - this is query parameter
+		if (
+			option.hasAttribute('checked') &&
+			[...option.attributes].some((attr) => attr.name.startsWith('form-'))
+		) {
+			console.log('option in checked and attribute:', option);
+			const formAttr = [...option.attributes].find((attr) =>
+				attr.name.startsWith('form-')
+			);
+			if (formAttr) {
+				// push query parameter name and value to array 'query parameter'
+				const formattedQuery = `{"${formAttr.name.substring(5)}":"${
+					formAttr.value
+				}"}`;
+				queryParameter.push(JSON.parse(formattedQuery));
+			}
+		}
+	});
+
+	console.log('queryParameter', queryParameter);
+
+	return queryParameter;
 }
 
 // const data = APIRequest.fetchProperties({

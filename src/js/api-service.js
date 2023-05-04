@@ -43,14 +43,15 @@ export default class ResalesOnlineApi {
 		});
 
 		const url = `${this.#baseUrl}?${searchParams}`;
+		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
-			
-			console.log(response.json());
-			// const data = await response.json();
+			const data = await response.json();
+			// console.log(data);
+
 			this.incrementPage();
-			// return data;
+			return data;
 		} catch (error) {
 			console.log(error);
 		}
