@@ -19,5 +19,7 @@ Open questions:
  - Social medias for contact info
  - More property photo for gallery
  - Price range step
+ - By default the output does not include rented properties. Need this?
+ (To include Rented properties add the parameter P_IncludeRented=1)
 
 PRICES - two fields (from , to)

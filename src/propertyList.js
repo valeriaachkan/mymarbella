@@ -1,25 +1,16 @@
 import './styles/propertyList.scss';
-import propertyList from '/src/templates/property-list.hbs';
+import fetchProperties from './js/fetch-and-render-properties';
+import './js/property-details';
+// import ResalesOnlineApi from './js/api-service';
+// import propertyList from '/src/templates/property-list.hbs';
 
 const galleryEl = document.querySelector('.gallery_container');
 
+// const APIRequest = new ResalesOnlineApi();
+
+const searchCriteria = JSON.parse(sessionStorage.getItem('propertySearchData'));
+console.log(searchCriteria);
+
+fetchProperties(searchCriteria);
+
 export { galleryEl };
-
-// const queryString = window.location.search;
-// const urlParams = new URLSearchParams(queryString);
-// const dataString = urlParams.get('data');
-// const data = JSON.parse(decodeURIComponent(dataString));
-// renderPropertyList(data);
-
-const properties = window.localStorage.getItem('properties');
-console.log(properties);
-renderPropertyList(properties);
-
-function renderPropertyList(properties) {
-	try {
-		galleryEl.innerHTML = propertyList(properties);
-	} catch (error) {
-		console.log(error);
-	}
-	console.log('hello');
-}
