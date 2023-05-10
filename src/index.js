@@ -1,11 +1,11 @@
 import $, { type } from 'jquery';
 import './styles/main.scss';
-import './js/slider.js';
+import './js/gallery-slider.js';
 import ResalesOnlineApi from './js/api-service';
 import customForm from './js/form.js';
 import renderPropertyList from './js/render-property-list';
 
-const APIRequest = new ResalesOnlineApi();
+// const APIRequest = new ResalesOnlineApi();
 const form = document.querySelector('form');
 
 // initialization of form functions
@@ -17,25 +17,14 @@ form.addEventListener('submit', onFormSubmit);
 async function onFormSubmit(e) {
 	e.preventDefault();
 	const query = setQueryParameter();
-
-	const data = await APIRequest.fetchProperties(...query, {
-		P_Location: 'Alicante',
-	});
-	console.log(data.Property);
-	const propertylist = data.Property;
-	// renderPropertyList(data);
-
-	// window.localStorage.setItem('propeties', JSON.stringify(propertylist));
-	// window.location.href = 'propertyList.html';
-
-	// const url = `propertyList.html?data=${encodeURIComponent(
-	// 	JSON.stringify(propertylist)
-	// )}`;
-	// window.location.href = url;
+	const serializedData = JSON.stringify(query);
+	console.log(serializedData);
+	sessionStorage.setItem('propertySearchData', serializedData);
+	window.location.href = 'propertyList.html';
 }
 
 function setQueryParameter() {
-	const queryParameter = [];
+	const queryParameter = {};
 	const formProperties = form.querySelectorAll('[checked]');
 	console.log('formProperties', formProperties);
 	Array.from(formProperties).forEach((option) => {
@@ -50,10 +39,11 @@ function setQueryParameter() {
 			);
 			if (formAttr) {
 				// push query parameter name and value to array 'query parameter'
-				const formattedQuery = `{"${formAttr.name.substring(5)}":"${
-					formAttr.value
-				}"}`;
-				queryParameter.push(JSON.parse(formattedQuery));
+				// const formattedQuery = `{"${formAttr.name.substring(5)}":"${
+				// 	formAttr.value
+				// }"}`;
+
+				queryParameter[formAttr.name.substring(5)] = formAttr.value;
 			}
 		}
 	});

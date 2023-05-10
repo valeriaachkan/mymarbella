@@ -18,10 +18,10 @@ export default class ResalesOnlineApi {
 		this.page = 1; //Page number of the search results to be returned. Default:1
 		this.p_agency_filterid = '1'; //1-Sale, 2-STRent, 3-LTRent
 		this.P_Location = ''; //Specific Location or csv list of Locations (e.g. Calahonda, Elviria)
-		this.P_PropertyTypes = '2-3,2-4'; //List of one or more Option Values
+		this.P_PropertyTypes = '1-1,4-5'; //List of one or more Option Values
 		this.P_Max = '';
 		this.P_Min = '';
-		this.P_MustHaveFeatures = ''; //If features are selected, affects either the sort order or the search results
+		this.P_MustHaveFeatures = '0'; //If features are selected, affects either the sort order or the search results
 		this.searchQueryId = ''; //The unique identifier for this search (returned by the initial query). SearchProperties?P_PageSize=5&P_QueryId=11111111-aaa&P_PageNo=2. Will return the next 5 properties from the previous search
 	}
 
