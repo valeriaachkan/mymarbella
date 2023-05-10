@@ -10,11 +10,12 @@ const form = document.querySelector('form');
 
 // initialization of form functions
 customForm();
-
 // custom submit function
 form.addEventListener('submit', onFormSubmit);
 
-async function onFormSubmit(e) {
+sessionStorage.clear();
+
+function onFormSubmit(e) {
 	e.preventDefault();
 	const query = setQueryParameter();
 	const serializedData = JSON.stringify(query);
