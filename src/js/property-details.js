@@ -12,8 +12,8 @@ function onPropertyCardClick(e) {
 }
 
 function goToPropertyDeatilsPage(ref) {
-	const url = `propertyDetails.html?data=${encodeURIComponent(
-		JSON.stringify(ref)
-	)}`;
+	const reference = JSON.stringify(ref).replaceAll('"', '');
+	console.log(reference);
+	const url = `propertyDetails.html?/${reference}`;
 	window.location.href = url;
 }
