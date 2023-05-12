@@ -1,3 +1,345 @@
 .property-details {
-    padding-top: 130px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @media screen and (min-width: $desktop) {
+        display: flex;
+        position: absolute;
+        gap: 40px;
+    }
+
+}
+
+.property-info {
+    @media screen and (min-width: $desktop) {
+        width: calc((100%-40px) * 0.7);
+    }
+}
+
+
+//Property caption
+
+.property-caption {
+    margin-bottom: 25px;
+}
+
+.text-wrapper {
+    display: flex;
+    align-items: baseline;
+
+    &--spaced {
+        margin-top: 2px;
+
+        @media screen and (min-width: $tablet) {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 0;
+        }
+    }
+}
+
+.property-name {
+    @include h4();
+    color: $secondary-text-color;
+
+    @media screen and (min-width: $tablet) {
+        @include h2();
+        color: $secondary-text-color;
+    }
+
+}
+
+.property-ref {
+    @include body-s();
+    color: rgba(0, 0, 0, 0.4);
+    margin-left: 10px;
+
+    @media screen and (min-width: $desktop) {
+        @include body-r();
+        margin-left: 15px;
+        color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.property-location--details {
+    @include body-r();
+    color: rgba(0, 0, 0, 0.8);
+
+    @media screen and (min-width: $desktop) {
+        @include body-l();
+        color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.property-price--details {
+    @include h4();
+    color: $secondary-text-color;
+    margin-top: 5px;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 25px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        font-size: 28px;
+    }
+}
+
+//Photo thumb
+.property-photos {
+    width: 100%;
+
+    background-image: url(/src/images/placeholder.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.property-photo__item {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+
+    @media screen and (min-width: $tablet) {
+        max-height: 500px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-height: 600px;
+    }
+}
+
+.property-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+
+// Content wrapper
+.content-wrapper {
+    border-radius: 12px;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: $white;
+
+    @media screen and (min-width: $tablet) {
+        margin-top: 40px;
+        padding: 40px;
+    }
+}
+
+.content-wrapper__heading {
+    @include h4();
+    color: $secondary-text-color;
+    margin-bottom: 20px;
+}
+
+
+//Property Overview
+.property-features-details {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: $tablet) {
+        flex-wrap: wrap;
+        max-height: 200px;
+    }
+}
+
+.property-features-details__item {
+    display: flex;
+
+    &:not(:last-child) {
+        margin-bottom: 15px;
+
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+.property-features-details__name {
+    @include h4();
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    font-size: 15px;
+    color: $secondary-text-color;
+}
+
+.property-features-details__value {
+    @include body-r();
+    margin-top: 2px;
+    color: $secondary-text-color;
+
+}
+
+.property-details__icon {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #787878;
+    border-radius: 12px;
+    color: transparent;
+}
+
+// Property Description
+.property-description__text {
+    @include body-r();
+    color: $secondary-text-color;
+}
+
+.property-description__container:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.property-details__list {
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 120px;
+    }
+}
+
+.property-details__item {
+    @include h4();
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: $secondary-text-color;
+
+    @media screen and (min-width: $tablet) {
+        max-width: calc((100% - 30px) / 2);
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 5px;
+
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.property-details__value {
+    @include body-s();
+    color: $secondary-text-color;
+
+}
+
+//Property Amenities
+.property-amenities__list {
+    list-style: inside;
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 160px;
+    }
+}
+
+.property-amenities__item {
+    @include body-r();
+    color: $secondary-text-color;
+
+    &:not(:last-child) {
+        margin-bottom: 3px;
+    }
+}
+
+
+//Get More Information
+
+.contact-details {
+    @media screen and (min-width: $desktop) {
+        position: sticky;
+        top: 0;
+        width: calc((100%-40px) * 0.3);
+        margin-top: 0;
+        height: fit-content;
+    }
+}
+
+.contact-details__thumb {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $tablet) {
+        width: 120px;
+        height: 120px;
+        margin-right: 50px;
+        margin-bottom: 0;
+    }
+
+    @media screen and (min-width: $desktop) {
+        margin-bottom: 20px;
+    }
+}
+
+.contact-details__container {
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+.contact-details__image {
+    width: 100%;
+}
+
+.contacts__agent {
+    @include h4();
+    font-size: 18px;
+    color: $secondary-text-color;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+.contacts__link {
+    @include body-s();
+    color: $secondary-text-color;
+    display: flex;
+    align-items: center;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: $desktop) {
+        @include body-r();
+        color: $secondary-text-color;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 5px;
+
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 8px;
+        }
+    }
+
+    &:hover,
+    &:hover>.contacts__icon {
+        color: $accent-color;
+        fill: $accent-color;
+    }
+}
+
+.contacts__icon {
+    margin-right: 8px;
+    fill: #787878;
 }
