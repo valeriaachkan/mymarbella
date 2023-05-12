@@ -16,7 +16,7 @@
         padding: 0;
     }
 
-    &--property-list {
+    &--fixed {
         @media screen and (min-width: $tablet) {
             position: static;
         }

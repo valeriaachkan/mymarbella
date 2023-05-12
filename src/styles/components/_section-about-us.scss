@@ -65,7 +65,6 @@
 }
 
 .section__photo {
-    @extend %image;
     width: 100%;
 
     @media screen and (min-width: $tablet) {
