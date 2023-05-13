@@ -1,8 +1,10 @@
 import $ from 'jquery';
 
-export default function customForm() {
+const form = document.querySelector('form');
+
+export function customFormInit() {
 	const form = document.querySelector('form');
-	const detailsElementsArray = document.querySelectorAll('details');
+	const detailsElementsArray = $('details');
 	const advSearchButton = $('.adv-search-button');
 	const advSearchWrapper = $('.adv-search-wrapper');
 	const actionInputs = $('[name="p_agency_filterid"]');
@@ -24,22 +26,23 @@ export default function customForm() {
 
 	// listener for custom select elements
 	if (detailsElementsArray.length > 0) {
-		detailsElementsArray.forEach((targetDetail) => {
-			document.addEventListener('click', function (e) {
+		Array.from(detailsElementsArray).forEach((targetDetail) => {
+			$(document).on('click tap touchstart', function (e) {
 				// listener for open or close
 				if (targetDetail && !targetDetail.contains(e.target)) {
 					targetDetail.removeAttribute('open');
 				}
 			});
 			// update <summary>
-			targetDetail.addEventListener('click', (e) => {
+			$(targetDetail).on('click tap touchstart', (e) => {
 				updateSummary(e.currentTarget);
 			});
 		});
 	}
 
 	function updateSummary(targetElement) {
-		const options = targetElement.querySelectorAll('input[type=checkbox]');
+		const options = $('input[type=checkbox]');
+		console.log(options)
 
 		const selectedValues = Array.from(options)
 			.filter((option) => option.checked)
@@ -60,4 +63,26 @@ export default function customForm() {
 			).textContent = `Selected ${selectedValues.length} locations`;
 		}
 	}
+}
+
+export function setQueryParameter(){
+    const queryParameter = [];
+    const formProperties =form.querySelectorAll('[checked]');
+    console.log('formProperties', formProperties);
+    Array.from(formProperties).forEach(option=>{
+        // if option 'checked' and started from 'form-' - this is query parameter
+        if (option.hasAttribute('checked') && [...option.attributes].some(attr => attr.name.startsWith('form-'))){
+            console.log('option in checked and attribute:',option)
+            const formAttr = [...option.attributes].find(attr => attr.name.startsWith('form-'));
+            if (formAttr) {
+                // push query parameter name and value to array 'query parameter'
+                const formattedQuery = `{"${formAttr.name.substring(5)}":"${formAttr.value}"}`;
+                queryParameter.push(JSON.parse(formattedQuery));
+            }
+        }
+    })
+
+    console.log('queryParameter', queryParameter)
+
+    return queryParameter;
 }
