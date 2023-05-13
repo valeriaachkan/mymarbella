@@ -19,5 +19,9 @@ Open questions:
  - Social medias for contact info
  - More property photo for gallery
  - Price range step
+ - Should property list include rented properties?
+ -В форме инпут под номер референса нужен?
+ - By default the output does not include rented properties. Need this?
+ (To include Rented properties add the parameter P_IncludeRented=1)
 
 PRICES - two fields (from , to)
