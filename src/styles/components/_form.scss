@@ -31,8 +31,6 @@ code{
   justify-content: space-between;
   margin-bottom: 1rem;
 
-  border-bottom: 1px solid $gray-300;
-
   input[type="radio"]{
     position: absolute;
     visibility: hidden;
@@ -114,82 +112,54 @@ code{
   line-height: 24px;
   border: unset;
   font-family: $primary-font-family;
+  max-width: 100%;
+  transition: $input-transition;
 
   &:focus, &:focus-visible{
     outline: unset !important;
   }
 }
 
-// .location-checkbox {}
-
-.multiple-select {
-  display: block;
-  position: relative;
-  width: 100%;
-  border-radius: 8px;
-  z-index: 1;
-
-  &[open]{
-    z-index: 500;
-  }
+.budget-wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
-.multiple-select summary {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border-radius: 8px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  background-color: $gray-100;
-  color: $gray-500;
-  font-family: $primary-font-family;
+.input-budget-wrapper{
+ max-width: 48%;
+ position: relative;
 }
 
-// hide default bug for multiple select arrow
-.multiple-select > summary {
-  list-style: none;
-
-  &:focus, &:focus-visible{
-    outline: unset !important;
-  }
-}
-
-.multiple-select > summary::-webkit-details-marker {
-  display: none;
-}
-
-.multiple-select__dropdown {
-  position: absolute;
-  margin-top: 3px;
-  min-width: 100%;
-  background-color: $gray-100;
-  border-radius: 8px;
-}
-
-.multiple-select__dropdown label {
+// Remove arrows on input
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
   margin: 0;
-  display: block;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: $gray-500;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.number-input{
+  padding: 5px 10px 5px 17px;
+  font-size: 15px;
   font-family: $primary-font-family;
+
+  &:hover, &:focus{
+    background-color: #dae0e5;
+  }
 }
 
-
-.multiple-select__dropdown label > input + span {
-  padding: 5px 10px;
-  display: block;
-  cursor: pointer;
-}
-
-.multiple-select__dropdown label > input:checked + .multiple-select__content {
-  background-color: $gray-200;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: $gray-900;
+.input-placeholder{
+  position: absolute;
+  bottom: 6px;
+  left: 5px;
+  color: $gray-500;
+  font-size: 15px;
   font-family: $primary-font-family;
 }
 
@@ -210,3 +180,7 @@ code{
   }
 }
 
+// select wrapper
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+  width: 100%;
+}

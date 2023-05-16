@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="./images/cropped-logo.png">
   <title>MyMarbella</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
@@ -48,43 +48,23 @@
 
           <form id="property-search-form" name="property-search" class="search-form" method="get">
             <div class="input-wrapper action-type">
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_1" form-p_agency_filterid="1" checked>
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_1" form-p_agency_filterid="1" checked  value="1">
               <label for="p_agency_filterid_1">Buy</label>
 
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_2" form-p_agency_filterid="2">
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_2" form-p_agency_filterid="2" value="2">
               <label for="p_agency_filterid_2">Short Rent</label>
 
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_3" form-p_agency_filterid="3">
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_3" form-p_agency_filterid="3"
-                value="3">
+
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_3" form-p_agency_filterid="3" value="3">
               <label for="p_agency_filterid_3">Long Rent</label>
             </div>
+
+
             <div class="input-wrapper">
-              <label for="multiple-select" class="form-label">Location</label>
-              <details class="multiple-select">
-                <summary>Select Locations</summary>
-                <div class="multiple-select__dropdown">
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-1" />
-                    <span class="multiple-select__content" form-P_Location="Málaga">Málaga</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-2" />
-                    <span class="multiple-select__content" form-P_Location="Alicante">Alicante</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-3" />
-                    <span class="multiple-select__content" form-P_Location="Barcelona">Barcelona</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-4" />
-                    <span class="multiple-select__content" form-P_Location="Milano">Milano</span>
-                  </label>
-                </div>
-              </details>
+     name="P_Location">
+
               <label for="P_Location" class="form-label">Location</label>
-              <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true"
-                name="P_Location">
+              <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true" name="P_Location">
                 <option value="Barcelona">Barcelona</option>
                 <option value="Madrid">Madrid</option>
                 <option value="Málaga">Málaga</option>
@@ -92,31 +72,9 @@
             </div>
 
             <div class="input-wrapper">
-              <label for="multiple-select" class="form-label">Type</label>
-              <details class="multiple-select">
-                <summary>Select Property Type</summary>
-                <div class="multiple-select__dropdown">
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-1" />
-                    <span class="multiple-select__content">One</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-2" />
-                    <span class="multiple-select__content">Two</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-3" />
-                    <span class="multiple-select__content">Three</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" hidden name="select" value="Value-4" />
-                    <span class="multiple-select__content">Four</span>
-                  </label>
-                </div>
-              </details>
+
               <label for="P_PropertyTypes" class="form-label">Property Type</label>
-              <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true"
-                name="P_PropertyTypes">
+              <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true" name="P_PropertyTypes">
                 <option value="1-1">Apartment</option>
                 <option value="2-1">House</option>
                 <option value="3-1">Plot</option>
@@ -127,90 +85,60 @@
             <div class="input-wrapper budget-wrapper budget-for-buy">
               <div class="input-budget-wrapper">
                 <label for="P_Min" class="form-label">Min. Price</label>
-                <input type="number" class="form-input number-input" name="P_Min"><span
-                  class="input-placeholder">€</span>
+
+                <input type="number" class="form-input number-input" name="P_Min"><span class="input-placeholder">€</span>
               </div>
               <div class="input-budget-wrapper">
                 <label for="P_Min" class="form-label">Max. Price</label>
-                <input type="number" class="form-input number-input" name="P_Max"><span
-                  class="input-placeholder">€</span>
+                <input type="number" class="form-input number-input" name="P_Max"><span class="input-placeholder">€</span>
               </div>
             </div>
 
             <div class="adv-search-wrapper">
               <div class="input-wrapper">
-                <label for="P_RefId" class="form-label">Reference #</label>
-                <input type="number" class="form-input number-input" name="P_RefId">
+                  <label for="P_RefId" class="form-label">Reference #</label>
+                  <input type="number" class="form-input number-input" name="P_RefId">
               </div>
 
               <div class="input-wrapper">
-                <label for="multiple-select" class="form-label">Custom Select</label>
-                <details class="multiple-select">
-                  <summary>Select Something</summary>
-                  <div class="multiple-select__dropdown">
-                    <label>
-                      <input type="checkbox" hidden name="select" value="Value-1" />
-                      <span class="multiple-select__content">One</span>
-                    </label>
-                    <label>
-                      <input type="checkbox" hidden name="select" value="Value-2" />
-                      <span class="multiple-select__content">Two</span>
-                    </label>
-                    <label>
-                      <input type="checkbox" hidden name="select" value="Value-3" />
-                      <span class="multiple-select__content">Three</span>
-                    </label>
-                    <label>
-                      <input type="checkbox" hidden name="select" value="Value-4" />
-                      <span class="multiple-select__content">Four</span>
-                    </label>
-                  </div>
-                </details>
+                <label for="P_Beds" class="form-label">Bedrooms</label>
+                <select class="selectpicker" data-actions-box="true" name="P_Beds">
+                  <option value="">Select Option</option>
+                  <option value="1x">1+</option>
+                  <option value="2x">2+</option>
+                  <option value="3x">3+</option>
+                  <option value="4x">4+</option>
+                  <option value="5x">5+</option>
+                  <option value="6x">6+</option>
+                  <option value="7x">7+</option>
+                  <option value="8x">8+</option>
+                  <option value="9x">9+</option>
+                  <option value="10x">10+</option>
+                </select>
               </div>
+
               <div class="input-wrapper">
-                <label for="multiple-select" class="form-label">Price Range</label>
-                <details class="multiple-select">
-                  <summary>Select Something</summary>
-                  <div class="multiple-select__dropdown">
-                    <label>
-                      <input type="checkbox" hidden name="select" value="" />
-                      <span class="multiple-select__content">Any</span>
-                    </label>
-
-                    <label>
-                      <input type="checkbox" hidden name="select" value="P_Min=100&P_Max=500" />
-                      <span class="multiple-select__content">€100 - €500</span>
-                    </label>
-
-                    <label>
-                      <input type="checkbox" hidden name="select" value="P_Min=500&P_Max=1000" />
-                      <span class="multiple-select__content">€500 - €1000</span>
-                    </label>
-
-                    <label>
-                      <input type="checkbox" hidden name="select" value="P_Min=1000&P_Max=5000" />
-                      <span class="multiple-select__content">€1000 - €2000</span>
-                    </label>
-
-                    <label>
-                      <input type="checkbox" hidden name="select" value="P_Min=100&P_Max=500" />
-                      <span class="multiple-select__content">€1000 - €2000</span>
-                    </label>
-
-                    <label>
-                      <input type="checkbox" hidden name="select" value="Value-4" />
-                      <span class="multiple-select__content">€1000 - €2000</span>
-                    </label>
-                  </div>
-                </details>
+                <label for="P_Baths" class="form-label">Bathrooms</label>
+                <select class="selectpicker" data-actions-box="true" name="P_Baths">
+                  <option value="">Select Option</option>
+                  <option value="1x">1+</option>
+                  <option value="2x">2+</option>
+                  <option value="3x">3+</option>
+                  <option value="4x">4+</option>
+                  <option value="5x">5+</option>
+                  <option value="6x">6+</option>
+                  <option value="7x">7+</option>
+                  <option value="8x">8+</option>
+                  <option value="9x">9+</option>
+                  <option value="10x">10+</option>
+                </select>
               </div>
+
             </div>
-
-
 
             <div class="button-wrapper">
               <div class="button adv-search-button">Advanced Search</div>
-              <input id="search-submit-btn" type="submit" class="button submit-button">
+              <input type="submit" class="button submit-button" value="Search" id="search-submit-btn">
             </div>
 
           </form>
@@ -452,6 +380,10 @@
     </div>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
   <script src="/dist/index.bundle.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
