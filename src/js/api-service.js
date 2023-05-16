@@ -81,9 +81,12 @@ export default class ResalesOnlineApi {
 		try {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
-			console.log(data);
+			const { Property } = data;
+			console.log(...Property);
+			// const propertyDetails = (...Property);
+			// console.log(data);
 
-			return data;
+			return Property;
 		} catch (error) {
 			console.log(error);
 		}

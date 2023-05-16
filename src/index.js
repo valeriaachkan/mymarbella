@@ -39,11 +39,6 @@ function setQueryParameter() {
 				attr.name.startsWith('form-')
 			);
 			if (formAttr) {
-				// push query parameter name and value to array 'query parameter'
-				// const formattedQuery = `{"${formAttr.name.substring(5)}":"${
-				// 	formAttr.value
-				// }"}`;
-
 				queryParameter[formAttr.name.substring(5)] = formAttr.value;
 			}
 		}
@@ -53,11 +48,3 @@ function setQueryParameter() {
 
 	return queryParameter;
 }
-
-// const data = APIRequest.fetchProperties({
-// 	p_agency_filterid: '3',
-// 	p_PageSize: '20',
-// 	P_Location: 'Benalmadena',
-// 	P_PropertyTypes: '1-1',
-// 	P_Min: '6000',
-// });
