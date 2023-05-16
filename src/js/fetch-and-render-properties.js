@@ -1,5 +1,5 @@
 import ResalesOnlineApi from './api-service';
-import propertyList from '/src/templates/property-list.hbs';
+import propertyListTpl from '/src/templates/property-list.hbs';
 import { galleryEl } from '../propertyList';
 
 const APIRequest = new ResalesOnlineApi();
@@ -15,9 +15,8 @@ export default async function fetchProperties(searchOptions) {
 function renderPropertyList(properties) {
 	console.log(properties);
 	try {
-		galleryEl.innerHTML = propertyList(properties);
+		galleryEl.innerHTML = propertyListTpl(properties);
 	} catch (error) {
 		console.log(error);
 	}
-	console.log('hello');
 }
