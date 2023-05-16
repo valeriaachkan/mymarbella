@@ -30,6 +30,7 @@ $secondary-bc-color: rgba(34, 97, 138, 0.8);
 $primary-font-family: "Roboto Condensed", Sans-serif;
 
 $o-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$input-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
 $mobile: 360px;
 $tablet: 768px;
