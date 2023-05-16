@@ -16,9 +16,26 @@
     }
 }
 
+// Content wrapper
+.content-wrapper {
+    border-radius: 12px;
+    margin-top: 30px;
+    padding: 30px;
+    background-color: $white;
+
+    @media screen and (min-width: $tablet) {
+        margin-top: 40px;
+        padding: 40px;
+    }
+}
+
+.content-wrapper__heading {
+    @include h4();
+    color: $secondary-text-color;
+    margin-bottom: 20px;
+}
 
 //Property caption
-
 .property-caption {
     margin-bottom: 25px;
 }
@@ -89,24 +106,29 @@
 //Photo thumb
 .property-photos {
     width: 100%;
-
-    background-image: url(/src/images/placeholder.png);
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    padding-bottom: 55px;
 }
 
 .property-photo__item {
     width: 100%;
-    border-radius: 12px;
+    height: 300px;
     overflow: hidden;
 
     @media screen and (min-width: $tablet) {
-        max-height: 500px;
+        height: 400px;
     }
 
     @media screen and (min-width: $desktop) {
-        max-height: 600px;
+        width: 100%;
+        height: 450px;
+
+    }
+
+    &--placeholder {
+        background-image: url(/src/images/placeholder.png);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
@@ -116,26 +138,6 @@
 
     object-fit: contain;
     object-position: 50% 50%;
-}
-
-
-// Content wrapper
-.content-wrapper {
-    border-radius: 12px;
-    margin-top: 30px;
-    padding: 30px;
-    background-color: $white;
-
-    @media screen and (min-width: $tablet) {
-        margin-top: 40px;
-        padding: 40px;
-    }
-}
-
-.content-wrapper__heading {
-    @include h4();
-    color: $secondary-text-color;
-    margin-bottom: 20px;
 }
 
 
@@ -275,16 +277,34 @@
     object-position: center center;
     overflow: hidden;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 
     @media screen and (min-width: $tablet) {
         width: 120px;
         height: 120px;
         margin-right: 50px;
+        margin-left: 0;
         margin-bottom: 0;
     }
 
     @media screen and (min-width: $desktop) {
         margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    &--text {
+        @media screen and (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media screen and (min-width: $desktop) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
 
@@ -294,10 +314,17 @@
         flex-wrap: wrap;
         align-items: center;
     }
+
+    @media screen and (min-width: $desktop) {
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .contact-details__image {
     width: 100%;
+
+
 }
 
 .contacts__agent {

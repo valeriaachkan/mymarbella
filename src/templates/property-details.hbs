@@ -6,15 +6,33 @@
                         </div>
                         <div class="text-wrapper--spaced">
                             <p class="property-location--details">{{this.Location}}, {{this.Area}}</p>
-                            <p class="property-price--details">€{{this.Price}}</p>
+                                {{#if this.Price}}
+                                <p class="property-price--details">€{{this.Price}}</p>
+                               {{/if}}
+                               {{#if this.RentalPrice2}}
+                               <p class="property-price--details">€{{this.RentalPrice2}} / {{this.RentalPeriod}}</p>
+                               {{/if}}
                         </div>
                     </div>
 
-                    <div class="property-photos slider">
+                    {{!-- <div class="content-wrapper property-photos slider">
+                        <div class="property-photo__item"><img class="property-photo" src="./images/content-image.png"
+                                alt=""></div>
+                        <div class="property-photo__item"><img class="property-photo" src="./images/content-image.png"
+                                alt=""></div>
+                        <div class="property-photo__item"><img class="property-photo" src="./images/content-image.png"
+                                alt=""></div>
+                        <div class="property-photo__item"><img class="property-photo" src="./images/content-image.png"
+                                alt=""></div>
+                    </div> --}}
+
+                    <div class="content-wrapper property-photos slider">
                         {{#if this.Pictures}}
                         {{#each this.Pictures.Picture}}
                         <div class="property-photo__item"><img class="property-photo" src="{{this.PictureURL}}" alt="Property photo"></div>
                         {{/each}}
+                        {{else}}
+                        <div class="property-photo__item--placeholder"></div>
                         {{/if}}
                     </div>
 
@@ -40,8 +58,8 @@
             -15 45 l0 45 230 0 230 0 0 -45z" />
                                     </g>
                                 </svg>
-                                <p class="property-features-details__name">Bedroom<span
-                                        class="property-features-details__value">2</span></p>
+                                <p class="property-features-details__name">Bedrooms<span
+                                        class="property-features-details__value">{{this.Bedrooms}}</span></p>
                             </li>
                             <li class="property-features-details__item">
                                 <svg class="property-details__icon" width="20px" height="20px"
@@ -79,8 +97,8 @@
             -10 -4 -10 -10z" />
                                     </g>
                                 </svg>
-                                <p class="property-features-details__name">Bathroom<span
-                                        class="property-features-details__value">1</span></p>
+                                <p class="property-features-details__name">Bathrooms<span
+                                        class="property-features-details__value">{{this.Bathrooms}}</span></p>
                             </li>
                             <li class="property-features-details__item">
                                 <svg class="property-details__icon" width="20px" height="20px" width="50.000000pt"
@@ -101,8 +119,9 @@
                                     </g>
                                 </svg>
                                 <p class="property-features-details__name">Built<span
-                                        class="property-features-details__value">80 m2</span></p>
+                                        class="property-features-details__value">{{this.Built}} m2</span></p>
                             </li>
+                            {{#if this.YearBuilt}}
                             <li class="property-features-details__item">
                                 <svg class="property-details__icon" width="20px" height="20px"
                                     viewBox="0 0 50.000000 50.000000" preserveAspectRatio="xMidYMid meet">
@@ -135,9 +154,10 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
 25 -5 25 -25z" />
                                     </g>
                                 </svg>
-                                <p class="property-features-details__name">Year Built<span
-                                        class="property-features-details__value">2022</span></p>
+                                <p class="property-features-details__name">Year Built<span class="property-features-details__value">{{this.YearBuilt}}</span></p>
                             </li>
+                            {{/if}}
+                            {{#if this.Garage}}
                             <li class="property-features-details__item">
                                 <svg class="property-details__icon" width="20px" height="20px"
                                     viewBox="0 0 50.000000 50.000000" preserveAspectRatio="xMidYMid meet">
@@ -168,8 +188,9 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
                                     </g>
                                 </svg>
                                 <p class="property-features-details__name">Garage<span
-                                        class="property-features-details__value">0</span></p>
+                                        class="property-features-details__value">{{this.Garage}}</span></p>
                             </li>
+                            {{/if}}
                             <li class="property-features-details__item">
                                 <svg class="property-details__icon" width="20px" height="20px"
                                     viewBox="0 0 50.000000 50.000000" preserveAspectRatio="xMidYMid meet">
@@ -189,7 +210,7 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
                                     </g>
                                 </svg>
                                 <p class="property-features-details__name">Property Type<span
-                                        class="property-features-details__value">Apartment</span></p>
+                                        class="property-features-details__value">{{this.PropertyType.NameType}}</span></p>
                             </li>
                         </ul>
                     </div>
@@ -197,58 +218,59 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
                     <div class="content-wrapper property-description">
                         <div class="property-description__container">
                             <h3 class="content-wrapper__heading">Property Description</h3>
-                            <p class="property-description__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit.
-                                Sint, unde impedit! Tempore reiciendis, sit cupiditate provident excepturi porro alias
-                                asperiores cum aliquam deleniti, dignissimos libero eius nisi iusto, ipsum soluta.
-                                Laboriosam voluptatum enim harum quae dolores doloremque maiores totam dolorum, eveniet,
-                                quo
-                                atque fugiat mollitia non nisi ut dicta eligendi natus iure. Doloribus architecto quia
-                                maiores corporis officiis sit quae?
-                                Laborum soluta accusantium esse perspiciatis neque dolores ad alias iste quos quis
-                                maiores
-                                aliquid architecto est ipsum itaque, molestiae veritatis ipsam suscipit magnam ratione
-                                ea.
+                            <p class="property-description__text">{{this.Description}}
                             </p>
                         </div>
                         <div class="property-description__container">
                             <h3 class="content-wrapper__heading">Property Details</h3>
                             <ul class="property-details__list">
                                 <li class="property-details__item">
-                                    Property Ref <span class="property-details__value">R5665656</span>
+                                    Property Ref<span class="property-details__value">{{this.Reference}}</span>
+                                </li>
+                                {{#if this.Price}}
+                                <li class="property-details__item">
+                                    Price <span class="property-details__value">€{{this.Price}}</span>
+                                </li>
+                               {{/if}}
+                               {{#if this.RentalPrice2}}
+                                <li class="property-details__item">
+                                    Price <span class="property-details__value">€{{this.RentalPrice2}} / {{this.RentalPeriod}}</span>
+                                </li>
+                               {{/if}}
+                                <li class="property-details__item">
+                                    Property Size <span class="property-details__value">{{this.Built}} m2</span>
                                 </li>
                                 <li class="property-details__item">
-                                    Price <span class="property-details__value">$252,000</span>
+                                    Property Type <span class="property-details__value">{{this.PropertyType.Type}}</span>
+                                </li>
+                                {{#if this.YearBuilt}}
+                                <li class="property-details__item">
+                                    Year Built<span class="property-details__value">{{this.YearBuilt}}</span>
+                                </li>
+                               {{/if}}
+                                <li class="property-details__item">
+                                    Bedrooms <span class="property-details__value">{{this.Bedrooms}}</span>
                                 </li>
                                 <li class="property-details__item">
-                                    Property Size <span class="property-details__value">150 m2</span>
+                                    Bathrooms <span class="property-details__value">{{this.Bathrooms}}</span>
                                 </li>
+                                {{#if this.Garage}}
                                 <li class="property-details__item">
-                                    Property Type <span class="property-details__value">Apartment</span>
+                                    Garage <span class="property-details__value">{{this.Garage}}</span>
                                 </li>
-                                <li class="property-details__item">
-                                    Year Built <span class="property-details__value">2007</span>
-                                </li>
-                                <li class="property-details__item">
-                                    Bedrooms <span class="property-details__value">2</span>
-                                </li>
-                                <li class="property-details__item">
-                                    Bathrooms <span class="property-details__value">2</span>
-                                </li>
-                                <li class="property-details__item">
-                                    Garage <span class="property-details__value">1</span>
-                                </li>
+                               {{/if}}
                             </ul>
                         </div>
                     </div>
 
+                    {{#if this.PropertyFeatures.Category.Type}}
                     <div class="content-wrapper property-amenities">
                         <h3 class="content-wrapper__heading">Features & Amenities</h3>
                         <ul class="property-amenities__list">
+                        {{#each this.PropertyFeatures.Category}}
                             <li class="property-amenities__item">Barbeque</li>
-                            <li class="property-amenities__item">Swimming Pool</li>
-                            <li class="property-amenities__item">Washer</li>
-                            <li class="property-amenities__item">WiFi6</li>
+                        {{/each}}
                         </ul>
                     </div>
+                    {{/if}}
                 </div>

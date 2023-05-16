@@ -20,8 +20,9 @@ Open questions:
  - More property photo for gallery
  - Price range step
  - Should property list include rented properties?
- -В форме инпут под номер референса нужен?
+ - В форме инпут под номер референса нужен?
  - By default the output does not include rented properties. Need this?
- (To include Rented properties add the parameter P_IncludeRented=1)
+   (To include Rented properties add the parameter P_IncludeRented=1)
+ - В short rent property есть две цены, какую ставить на сайт? (пример RentalPeriod: "Week", RentalPrice1: 6000, RentalPrice2: 10000)
 
 PRICES - two fields (from , to)

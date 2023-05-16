@@ -18,7 +18,12 @@ function renderPropertyDetails(property) {
 	console.log('hello', property);
 	try {
 		propertyDetailsContainer.innerHTML = propertyDetTpl(property);
+		importSlickSlider();
 	} catch (error) {
 		console.log(error);
 	}
+}
+
+function importSlickSlider() {
+	import('/src/js/property-photo-slider.js');
 }

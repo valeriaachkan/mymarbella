@@ -7,16 +7,6 @@ function initPage() {
 	const propertyOptions = formSearchPropertyOptions();
 	console.log(propertyOptions);
 	fetchPropertyDetails(propertyOptions);
-	import('./js/property-photo-slider')
-		.then((module) => {
-			// Module has been successfully loaded
-			// You can use the module here
-			module();
-		})
-		.catch((error) => {
-			// An error occurred while loading the module
-			console.error('Error loading module:', error);
-		});
 }
 
 if (document.querySelector('.propertyDetails-page')) {
