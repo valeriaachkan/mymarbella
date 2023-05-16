@@ -1,11 +1,14 @@
 .section-services {
-    // background-color: $bc-color;
     background-color: $secondary-bc-color;
     padding: 70px 15px;
 
     @media screen and (min-width: $tablet) {
         padding-top: 100px;
-        padding-bottom: 70px;
+        padding-bottom: 0;
+    }
+
+    @media screen and (min-width: $desktop) {
+        padding-top: 100px;
     }
 }
 
@@ -19,8 +22,6 @@
 }
 
 .services__list {
-
-
     @media screen and (min-width: $tablet) {
         display: flex;
         flex-direction: row;
@@ -30,7 +31,7 @@
 }
 
 .services__item {
-    padding: 30px 20px;
+    padding: 20px 20px;
     text-align: center;
     background-color: #f1f3f8;
 
@@ -39,8 +40,18 @@
     }
 
     @media screen and (min-width: $tablet) {
-        width: calc((100% - 35px*3)/3);
-        padding: 50px 30px;
+        width: calc((100% - 35px)/2);
+        padding: 30px 30px;
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: calc((100% - 35px*2)/3);
+        padding: 40px 30px;
         margin: 0;
     }
 }

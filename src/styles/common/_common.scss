@@ -28,19 +28,11 @@ a {
 }
 
 body {
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-
-
-
-
     margin: 0;
-
-    // &.modal-open {
-    //     overflow: hidden;
-    //     pointer-events: none;
-    // }
+    background-color: $bc-color;
 }
 
 main {
@@ -53,6 +45,9 @@ ul {
     margin: 0;
 }
 
+img {
+    display: block;
+}
 
 .visually-hidden {
     @extend %visually-hidden;
