@@ -1,12 +1,19 @@
 import './styles/propertyDetails.scss';
-// import './js/property-photo-slider';
+import SpinnerLoad from './js/spinner';
 import fetchPropertyDetails from './js/fetch-property-details';
-import { getSearchCriteria } from './propertyList';
+// import { getSearchCriteria } from './propertyList';
+
+const spinner = new SpinnerLoad();
 
 function initPage() {
+	spinner.start();
 	const propertyOptions = formSearchPropertyOptions();
 	console.log(propertyOptions);
+
 	fetchPropertyDetails(propertyOptions);
+	if (document.querySelector('.property-details__container')) {
+		spinner.stop();
+	}
 }
 
 if (document.querySelector('.propertyDetails-page')) {

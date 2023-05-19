@@ -4,15 +4,30 @@
 
     @media screen and (min-width: $desktop) {
         display: flex;
-        position: absolute;
+        position: relative;
         gap: 40px;
     }
 
 }
 
 .property-info {
+    position: relative;
+
     @media screen and (min-width: $desktop) {
         width: calc((100%-40px) * 0.7);
+    }
+}
+
+.spinner-container {
+    width: 400px;
+    height: 400px;
+
+    @media screen and (min-width: $desktop) {
+        width: 812px;
+    }
+
+    @media screen and (min-width: 1600px) {
+        width: 1022px;
     }
 }
 
@@ -26,6 +41,14 @@
     @media screen and (min-width: $tablet) {
         margin-top: 40px;
         padding: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: 812px;
+    }
+
+    @media screen and (min-width: 1600px) {
+        max-width: 1022px;
     }
 }
 
