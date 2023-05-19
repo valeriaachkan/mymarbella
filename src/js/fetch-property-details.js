@@ -1,17 +1,26 @@
 import ResalesOnlineApi from './api-service';
-
-const APIRequest = new ResalesOnlineApi();
 import propertyDetTpl from '/src/templates/property-details.hbs';
+import notFoundPageTpl from '/src/templates/404.hbs';
 import { propertyDetailsContainer } from '../propertyDetails';
 
-export default async function fetchPropertyDetails(searchPropertyOptions) {
-	const data = await APIRequest.fetchPropertyDetailsByRef(
-		searchPropertyOptions
-	);
-	const propertyDetails = data;
-	console.log(...propertyDetails);
+const APIRequest = new ResalesOnlineApi();
 
-	renderPropertyDetails(...propertyDetails);
+export default async function fetchPropertyDetails(searchPropertyOptions) {
+	try {
+		const data = await APIRequest.fetchPropertyDetailsByRef(
+			searchPropertyOptions
+		);
+		const propertyDetails = data;
+
+		if (propertyDetails.length === 0) {
+			renderNotFoundPage();
+			return;
+		}
+
+		renderPropertyDetails(...propertyDetails);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 function renderPropertyDetails(property) {
@@ -19,6 +28,13 @@ function renderPropertyDetails(property) {
 	try {
 		propertyDetailsContainer.innerHTML = propertyDetTpl(property);
 		importSlickSlider();
+	} catch (error) {
+		console.log(error);
+	}
+}
+function renderNotFoundPage() {
+	try {
+		propertyDetailsContainer.innerHTML = notFoundPageTpl();
 	} catch (error) {
 		console.log(error);
 	}

@@ -77,6 +77,11 @@
     padding-top: 20px;
     padding-bottom: 20px;
 
+    &:hover,
+    &:focus {
+        color: $accent-color-hover ;
+    }
+
     @media screen and (min-width: $desktop) {
         &::after {
             content: ' ';
@@ -98,6 +103,7 @@
         &:hover::after,
         &:focus::after {
             transform: scale(1);
+            color: $accent-color-hover ;
         }
     }
 }

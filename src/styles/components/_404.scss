@@ -1,0 +1,63 @@
+.not-found__icon {
+    margin-bottom: 20px;
+}
+
+.goHome__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $white;
+    background-color: $accent-color;
+    max-width: 165px;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+
+    &:hover {
+        background-color: $accent-color-hover;
+        color: $white;
+        cursor: pointer;
+    }
+}
+
+.content-wrapper.not-found__container {
+    border-radius: 12px;
+    margin-top: 30px;
+    padding: 30px;
+    height: 100%;
+    background-color: $white;
+    text-align: center;
+
+    @media screen and (min-width: $tablet) {
+        margin-top: 40px;
+        padding: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: 812px;
+        margin-top: 0;
+    }
+
+    @media screen and (min-width: 1600px) {
+        max-width: 1022px;
+    }
+}
+
+.not-found__container>.content-wrapper__heading {
+    @include h4();
+    color: $secondary-text-color;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 25px;
+    }
+}
+
+.content-wrapper__text {
+    @include body-r();
+    color: $secondary-text-color;
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}

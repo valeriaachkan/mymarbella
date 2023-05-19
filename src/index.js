@@ -2,7 +2,6 @@ import './styles/main.scss';
 import './js/gallery-slider.js';
 import ResalesOnlineApi from './js/api-service';
 import { customFormInit } from './js/form.js';
-import renderPropertyList from './js/render-property-list';
 
 const form = document.querySelector('form');
 form.addEventListener('submit', onFormSubmit);

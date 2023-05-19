@@ -1,17 +1,26 @@
 import './styles/propertyList.scss';
+import SpinnerLoad from './js/spinner';
 import fetchProperties from './js/fetch-and-render-properties';
-import './js/on-property-card';
-// import ResalesOnlineApi from './js/api-service';
-// import propertyList from '/src/templates/property-list.hbs';
+// import './js/on-property-card';
+import onPropertyCardClick from './js/on-property-card';
 
-const galleryEl = document.querySelector('.gallery_container');
+const spinner = new SpinnerLoad();
+const galleryContainerEl = document.querySelector('.gallery_container');
 
 function initPage() {
-	// const APIRequest = new ResalesOnlineApi();
-
+	spinner.start();
 	const searchCriteria = getSearchCriteria();
 
 	fetchProperties(searchCriteria);
+	if (document.querySelector('.property-list')) {
+		spinner.stop();
+
+		const propertyCardEl = document.querySelector('.property-card');
+
+		galleryContainerEl.addEventListener('click', onPropertyCardClick);
+		propertyCardEl.addEventListener('touch', onPropertyCardClick);
+		// import('./js/on-property-card');
+	}
 }
 
 if (document.querySelector('.propertyList-page')) {
@@ -26,4 +35,4 @@ function getSearchCriteria() {
 	return searchCriteria;
 }
 
-export { galleryEl, getSearchCriteria };
+export { galleryContainerEl, getSearchCriteria };

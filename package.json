@@ -37,6 +37,7 @@
     "handlebars-loader": "^1.7.3",
     "jquery": "^3.6.4",
     "modern-normalize": "^1.1.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "spin.js": "^4.1.1"
   }
 }

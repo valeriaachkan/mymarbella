@@ -7,7 +7,7 @@
                         <div class="text-wrapper--spaced">
                             <p class="property-location--details">{{this.Location}}, {{this.Area}}</p>
                                 {{#if this.Price}}
-                                <p class="property-price--details">€{{this.Price}}</p>
+                                <p class="property-price--details">€{{price this.Price}}</p>
                                {{/if}}
                                {{#if this.RentalPrice2}}
                                <p class="property-price--details">€{{this.RentalPrice2}} / {{this.RentalPeriod}}</p>
@@ -229,7 +229,7 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
                                 </li>
                                 {{#if this.Price}}
                                 <li class="property-details__item">
-                                    Price <span class="property-details__value">€{{this.Price}}</span>
+                                    Price <span class="property-details__value">€{{price this.Price}}</span>
                                 </li>
                                {{/if}}
                                {{#if this.RentalPrice2}}
