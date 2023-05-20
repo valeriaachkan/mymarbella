@@ -42,15 +42,15 @@
 
           <form id="property-search-form" name="property-search" class="search-form" method="get">
             <div class="input-wrapper action-type">
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_1" form-p_agency_filterid="1" checked
+                <input type="radio" name="p_agency_filterid" id="p_agency_filterid1" checked
                 value="1">
-              <label for="p_agency_filterid_1">Buy</label>
+              <label for="p_agency_filterid_1">Sale</label>
 
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_2" form-p_agency_filterid="2"
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid2"
                 value="2">
               <label for="p_agency_filterid_2">Short Rent</label>
 
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid_3" form-p_agency_filterid="3"
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid3"
                 value="3">
               <label for="p_agency_filterid_3">Long Rent</label>
             </div>
@@ -60,13 +60,14 @@
               <label for="P_Location" class="form-label">Location</label>
               <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true"
                 name="P_Location">
+                <option value="Alicante">Alicante</option>
                 <option value="Barcelona">Barcelona</option>
                 <option value="Madrid">Madrid</option>
                 <option value="Málaga">Málaga</option>
               </select>
             </div>
 
-            <div class="input-wrapper">
+          <div class="input-wrapper">
               <label for="P_PropertyTypes" class="form-label">Property Type</label>
               <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true"
                 name="P_PropertyTypes">

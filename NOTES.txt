@@ -26,3 +26,7 @@ Open questions:
  - В short rent property есть две цены, какую ставить на сайт? (пример RentalPeriod: "Week", RentalPrice1: 6000, RentalPrice2: 10000)
 
 PRICES - two fields (from , to)
+
+
+To offer:
+- Добавить форму на страницу с результатами
