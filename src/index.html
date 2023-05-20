@@ -42,16 +42,14 @@
 
           <form id="property-search-form" name="property-search" class="search-form" method="get">
             <div class="input-wrapper action-type">
-                <input type="radio" name="p_agency_filterid" id="p_agency_filterid1" checked
-                value="1">
+
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid1" checked value="1">
               <label for="p_agency_filterid_1">Sale</label>
 
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid2"
-                value="2">
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid2" value="2">
               <label for="p_agency_filterid_2">Short Rent</label>
 
-              <input type="radio" name="p_agency_filterid" id="p_agency_filterid3"
-                value="3">
+              <input type="radio" name="p_agency_filterid" id="p_agency_filterid3" value="3">
               <label for="p_agency_filterid_3">Long Rent</label>
             </div>
 
@@ -60,6 +58,7 @@
               <label for="P_Location" class="form-label">Location</label>
               <select class="selectpicker" multiple data-selected-text-format="count > 2" data-actions-box="true"
                 name="P_Location">
+                <!-- <option class="bold-text" value="">Spain</option> -->
                 <option value="Alicante">Alicante</option>
                 <option value="Barcelona">Barcelona</option>
                 <option value="Madrid">Madrid</option>
@@ -80,14 +79,12 @@
 
             <div class="input-wrapper budget-wrapper budget-for-buy">
               <div class="input-budget-wrapper">
-                <label for="P_Min" class="form-label">Min. Price</label>
-                <input type="number" class="form-input number-input" name="P_Min"><span
-                  class="input-placeholder">€</span>
+                <label for="P_Min" class="form-label">Min. Price, €</label>
+                <input type="number" class="form-input number-input" name="P_Min">
               </div>
               <div class="input-budget-wrapper">
-                <label for="P_Min" class="form-label">Max. Price</label>
-                <input type="number" class="form-input number-input" name="P_Max"><span
-                  class="input-placeholder">€</span>
+                <label for="P_Min" class="form-label">Max. Price, €</label>
+                <input type="number" class="form-input number-input" name="P_Max">
               </div>
             </div>
 

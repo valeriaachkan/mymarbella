@@ -14,9 +14,7 @@ sessionStorage.clear();
 function onFormSubmit(e) {
 	e.preventDefault();
 	const formData = setQueryParameters();
-	// console.log(formData);
-
-	API.fetchProperties(formData);
+	console.log(formData);
 
 	// goToPropertyListPage(formData);
 }
@@ -75,4 +73,11 @@ function goToPropertyListPage(query) {
 	const serializedData = JSON.stringify(query);
 	sessionStorage.setItem('propertySearchData', serializedData);
 	window.location.href = 'propertyList.html';
+}
+
+// handlebars function
+function greaterThanZero(value){
+	if (value > 0 ){
+		return value;
+	} else return false
 }
