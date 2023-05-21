@@ -14,9 +14,8 @@ sessionStorage.clear();
 function onFormSubmit(e) {
 	e.preventDefault();
 	const formData = setQueryParameters();
-	console.log(formData);
 
-	// goToPropertyListPage(formData);
+	goToPropertyListPage(formData);
 }
 
 function setQueryParameters() {
@@ -29,11 +28,13 @@ function setQueryParameters() {
 	const P_RefId = $('[name="P_RefId"]');
 	const P_Beds = $('[name="P_Beds"]');
 	const P_Baths = $('[name="P_Baths"]');
+	
 
-
-	if (P_Location.val().toString() !== ''){
+	 if(P_Location.val().includes('all-regions')){ 	// if input value is all regions
+		formData.P_Location = '';
+	} else if (P_Location.val().toString() !== '' && !P_Location.val().includes('all-regions')) { // if input value is not empty and not all regions
 		formData.P_Location = P_Location.val();
-	}
+	} 
 
 	Array.from(P_Agency).forEach(agency => {
 		if(agency.checked){
