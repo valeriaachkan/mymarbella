@@ -15,7 +15,8 @@ function onFormSubmit(e) {
 	e.preventDefault();
 	const formData = setQueryParameters();
 
-	goToPropertyListPage(formData);
+	console.log(formData);
+	// goToPropertyListPage(formData);
 }
 
 function setQueryParameters() {
@@ -37,8 +38,8 @@ function setQueryParameters() {
 	} 
 
 	Array.from(P_Agency).forEach(agency => {
-		if(agency.checked){
-			formData.P_Agency = agency.value;
+		if($(agency).attr('checked')){
+			formData.P_Agency = $(agency).val();
 		}
 	})
 
