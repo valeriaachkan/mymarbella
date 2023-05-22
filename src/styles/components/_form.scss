@@ -3,6 +3,16 @@
   background-color: $white;
   padding: 25px 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  @media screen and (min-width:$tablet) {
+    min-width: 400px;
+  }
+
+ .button{
+  font-family: $font-accent;
+ } 
+
+ 
 }
 
 code{ 
@@ -46,7 +56,8 @@ code{
     line-height: 1;
     letter-spacing: -0.04em;
     color: $gray-400;
-    font-family: $primary-font-family;
+    font-family: $font-accent;
+    
     padding: 5px;
     transition: border-color 0s ease-in-out 0.5s, color 0.5ms linear;
 
@@ -63,12 +74,12 @@ code{
 
       position: absolute;
       left: 0;
-      bottom: -2px;
+      bottom: -5px;
 
       width: 100%;
-      height: 3px;
+      height: 2px;
       border-radius: 2px;
-      background-color: $accent-color;
+      background-color: #181A20;
 
       transform: scale(0);
       transition: transform 250ms $o-animation-timing-function;
@@ -83,7 +94,7 @@ code{
   
 
   input[type="radio"]:checked + label{
-    color: $accent-color;
+    color: #181A20 !important;
   
     &::after {
       transform: scale(1);
@@ -94,7 +105,7 @@ code{
 .form-label{
   color: $gray;
   font-size: 14px;
-  font-family: $primary-font-family;
+  font-family: $font-accent;
   line-height: 18px;
   font-weight: 600;
   margin-bottom: 6px;
@@ -124,10 +135,12 @@ code{
   display: flex;
   flex-direction: row;
   gap: 5px;
+  justify-content: space-between;
 }
 
 .input-budget-wrapper{
  max-width: 48%;
+ width: 100%;
  position: relative;
 }
 
@@ -148,6 +161,7 @@ input[type=number] {
   padding: 5px 10px 5px 17px;
   font-size: 15px;
   font-family: $primary-font-family;
+  width: 100%;
 
   &:hover, &:focus{
     background-color: #dae0e5;
@@ -163,13 +177,49 @@ input[type=number] {
   font-family: $primary-font-family;
 }
 
+// bootstrap elements
+.filter-option,
+span.text,
+.btn{
+  font-family: $font-accent;
+}
+
+
 .button-wrapper{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row;
-
   margin-top: 1rem;
+  gap: 8px;
+
+  .button, .submit-button-wrapper{
+    min-width: 100%;
+
+    @media screen and (min-width:$tablet) {
+      min-width: 150px;
+
+    }
+  }
+}
+
+.submit-button-wrapper{
+  position: relative;
+}
+
+.search-icon{
+  position: absolute;
+  z-index: 10;
+  right: 28px;
+  top: 6px;
+
+  svg{
+    width: 15px;
+  }
+}
+
+.all-regions{
+  font-weight: 700;
 }
 
 .adv-search-wrapper{
@@ -183,4 +233,9 @@ input[type=number] {
 // select wrapper
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
   width: 100%;
+}
+
+.bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle{
+  outline-offset: 0;
+  outline: unset !important
 }
