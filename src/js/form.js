@@ -11,11 +11,17 @@ export function customFormInit() {
 
 	// 'checked' toggle listener for form action type (sale / rent)
 	actionLabels.on('click', function(e){
-		const clickedInput = e.target.previousElementSibling;
+		const clickedInput = $(e.target).prev();
+		const clickedLabel = $(e.target);
+			console.log({clickedInput})
 
 		Array.from(actionInputs).forEach(input => {
-			input.removeAttribute('checked')
-			clickedInput.setAttribute('checked', '')
+			console.log($(input).next());
+			$(input).next().removeClass('clicked-label')
+			$(input).removeAttr('checked')
+			
+			clickedInput.attr('checked', 'true');
+			clickedLabel.addClass('clicked-label');
 		})
 	})
 

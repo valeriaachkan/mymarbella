@@ -40,9 +40,9 @@ function setQueryParameters() {
 		formData.P_Location = P_Location.val();
 	}
 
-	Array.from(p_agency_filterid).forEach((agency) => {
-		if (agency.checked) {
-			formData.p_agency_filterid = agency.value;
+	Array.from(P_Agency).forEach(agency => {
+		if($(agency).attr('checked')){
+			formData.P_Agency = $(agency).val();
 		}
 	});
 
