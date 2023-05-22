@@ -1,31 +1,45 @@
 import './styles/propertyList.scss';
 import SpinnerLoad from './js/spinner';
-import fetchProperties from './js/fetch-and-render-properties';
+import {
+	fetchProperties,
+	onLoadMoreBtnClick,
+} from './js/fetch-and-render-properties';
 // import './js/on-property-card';
 import onPropertyCardClick from './js/on-property-card';
 
 const spinner = new SpinnerLoad();
 const galleryContainerEl = document.querySelector('.gallery_container');
 
-function initPage() {
+async function initPage() {
 	spinner.start();
+	let isListRendered = false;
 	const searchCriteria = getSearchCriteria();
 
-	fetchProperties(searchCriteria);
-	if (document.querySelector('.property-list')) {
+	isListRendered = await fetchProperties(searchCriteria);
+	console.log(isListRendered);
+
+	if (isListRendered) {
 		spinner.stop();
 
-		const propertyCardEl = document.querySelector('.property-card');
-
 		galleryContainerEl.addEventListener('click', onPropertyCardClick);
-		propertyCardEl.addEventListener('touch', onPropertyCardClick);
-		// import('./js/on-property-card');
+
+		const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
+		loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 	}
+
+	// if (document.querySelector('.loadMore__button')) {
+	// 	const loadMoreBtn = document.querySelector('.loadMore__button');
+	// 	console.log(loadMoreBtn);
+
+	// 	loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
+	// }
 }
 
 if (document.querySelector('.propertyList-page')) {
 	initPage();
 }
+
+// function
 
 function getSearchCriteria() {
 	const searchCriteria = JSON.parse(

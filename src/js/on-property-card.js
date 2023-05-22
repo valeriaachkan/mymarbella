@@ -1,20 +1,17 @@
 import { getSearchCriteria } from '/src/propertyList';
 
-// if (document.querySelector('.property-list')) {
-// console.log('first');
-// console.log(propertyCardEl);
-console.log('privet');
 window.addEventListener('click', onPropertyCardClick);
 // window.addEventListener('touch', onPropertyCardClick);
 // }
 
 export default function onPropertyCardClick(e) {
-	console.log(e.target);
+	// console.log(e.target);
 	const propertyCardEl = document.querySelector('.property-card');
+
 	if (!e.target.classList.contains('property-card')) {
 		return;
 	}
-	console.log('first1');
+
 	const targetProperty = e.target;
 	const propertyRef = targetProperty.getAttribute('data-reference');
 	console.log(targetProperty, propertyRef);
