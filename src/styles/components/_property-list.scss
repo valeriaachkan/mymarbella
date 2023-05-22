@@ -153,3 +153,30 @@
     opacity: 1;
     height: 1px;
 }
+
+.goBack__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $white;
+    background-color: $accent-color;
+    max-width: 160px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border: none;
+
+    &:hover {
+        background-color: $accent-color-hover;
+        color: $white;
+        cursor: pointer;
+    }
+}
+
+.loadMore__button {
+    display: block;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
