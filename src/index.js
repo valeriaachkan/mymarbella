@@ -32,17 +32,14 @@ function setQueryParameters() {
 	if (P_Location.val().includes('all-regions')) {
 		// if input value is all regions
 		formData.P_Location = '';
-	} else if (
-		P_Location.val().toString() !== '' &&
-		!P_Location.val().includes('all-regions')
-	) {
+	} else if (P_Location.val().toString() !== '' && !P_Location.val().includes('all-regions')) {
 		// if input value is not empty and not all regions
 		formData.P_Location = P_Location.val();
 	}
 
-	Array.from(P_Agency).forEach(agency => {
+	Array.from(p_agency_filterid).forEach(agency => {
 		if($(agency).attr('checked')){
-			formData.P_Agency = $(agency).val();
+			formData.p_agency_filterid = $(agency).val();
 		}
 	});
 
