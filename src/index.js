@@ -21,49 +21,52 @@ function onFormSubmit(e) {
 function setQueryParameters() {
 	const formData = {};
 	const P_Location = $('[name="P_Location"]');
-	const P_Agency = $('[name=p_agency_filterid]');
+	const p_agency_filterid = $('[name=p_agency_filterid]');
 	const P_PropertyTypes = $('[name="P_PropertyTypes"]');
-	const P_Min =  $('[name="P_Min"]');
-	const P_Max =  $('[name="P_Max"]');
+	const P_Min = $('[name="P_Min"]');
+	const P_Max = $('[name="P_Max"]');
 	const P_RefId = $('[name="P_RefId"]');
 	const P_Beds = $('[name="P_Beds"]');
 	const P_Baths = $('[name="P_Baths"]');
-	
 
-	 if(P_Location.val().includes('all-regions')){ 	// if input value is all regions
+	if (P_Location.val().includes('all-regions')) {
+		// if input value is all regions
 		formData.P_Location = '';
-	} else if (P_Location.val().toString() !== '' && !P_Location.val().includes('all-regions')) { // if input value is not empty and not all regions
+	} else if (
+		P_Location.val().toString() !== '' &&
+		!P_Location.val().includes('all-regions')
+	) {
+		// if input value is not empty and not all regions
 		formData.P_Location = P_Location.val();
-	} 
+	}
 
-	Array.from(P_Agency).forEach(agency => {
-		if(agency.checked){
-			formData.P_Agency = agency.value;
+	Array.from(p_agency_filterid).forEach((agency) => {
+		if (agency.checked) {
+			formData.p_agency_filterid = agency.value;
 		}
-	})
+	});
 
-	
-	if (P_PropertyTypes.val().toString() !== ''){
+	if (P_PropertyTypes.val().toString() !== '') {
 		formData.P_PropertyTypes = P_PropertyTypes.val();
 	}
 
-	if (P_Min.val().toString() !== ''){
+	if (P_Min.val().toString() !== '') {
 		formData.P_Min = P_Min.val();
 	}
 
-	if (P_Max.val().toString() !== ''){
+	if (P_Max.val().toString() !== '') {
 		formData.P_Max = P_Max.val();
 	}
 
-	if (P_RefId.val().toString() !== ''){
-		formData.P_RefId =P_RefId.val();
+	if (P_RefId.val().toString() !== '') {
+		formData.P_RefId = P_RefId.val();
 	}
 
-	if (P_Beds.val().toString() !== ''){
+	if (P_Beds.val().toString() !== '') {
 		formData.P_Beds = P_Beds.val();
 	}
 
-	if (P_Baths.val().toString() !== ''){
+	if (P_Baths.val().toString() !== '') {
 		formData.P_Baths = P_Baths.val();
 	}
 
@@ -77,8 +80,8 @@ function goToPropertyListPage(query) {
 }
 
 // handlebars function
-function greaterThanZero(value){
-	if (value > 0 ){
+function greaterThanZero(value) {
+	if (value > 0) {
 		return value;
-	} else return false
+	} else return false;
 }

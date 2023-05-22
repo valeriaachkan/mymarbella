@@ -16,15 +16,16 @@ async function fetchProperties(searchOptions) {
 
 		if (properties.length === 0) {
 			renderNotFoundPage();
-			return;
+			return false;
 		}
 
 		if (propertyCount > 20) {
 			renderPropertyList(properties);
 			addLoadMoreButton(queryId);
-			return;
+			return true;
 		}
 		renderPropertyList(properties);
+		return true;
 	} catch (error) {
 		console.log(error);
 	}
