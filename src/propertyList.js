@@ -10,24 +10,20 @@ import onPropertyCardClick from './js/on-property-card';
 const spinner = new SpinnerLoad();
 const galleryContainerEl = document.querySelector('.gallery_container');
 
-function initPage() {
+async function initPage() {
 	spinner.start();
+	let isListRendered = false;
 	const searchCriteria = getSearchCriteria();
 
-	fetchProperties(searchCriteria);
+	isListRendered = await fetchProperties(searchCriteria);
+	console.log(isListRendered);
 
-	if (document.querySelector('.property-list')) {
+	if (isListRendered) {
 		spinner.stop();
-		console.log('first');
-
-		const propertyCardEl = document.querySelector('.property-card');
 
 		galleryContainerEl.addEventListener('click', onPropertyCardClick);
-		propertyCardEl.addEventListener('touch', onPropertyCardClick);
 
-		const loadMoreBtn = document.querySelector('.loadMore__button');
-		console.log('here', loadMoreBtn);
-
+		const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
 		loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 	}
 
