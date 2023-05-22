@@ -33,12 +33,20 @@
         @media screen and (min-width: $desktop) {
             display: grid;
             grid-template-columns: 1.3fr 50px 1fr;
-            grid-template-rows: 0.5fr 1.8fr 1.5fr 0.3fr 1.5fr;
+            grid-template-rows: 0.3fr 2.1fr 1.8fr 0.4fr 1.5fr;
             justify-items: start;
             align-items: end;
 
             height: 100%;
-            padding-top: 140px;
+            padding-top: 100px;
+            padding-bottom: 5px;
+        }
+
+        @media screen and (min-width: 1600px) {
+            grid-template-rows: 0.3fr 1.7fr 2.2fr 0.4fr 1.3fr;
+
+            padding-top: 130px;
+            padding-bottom: 5px;
         }
     }
 }
@@ -48,6 +56,11 @@
     @media screen and (min-width: $desktop) {
         grid-column: 1;
         grid-row: 3 / span 1;
+        align-self: center;
+    }
+
+    @media screen and (min-width: 1600px) {
+        align-self: center;
     }
 }
 
@@ -93,8 +106,13 @@
     @media screen and (min-width: $desktop) {
         width: 100%;
         grid-column: 3 / 4;
-        grid-row: 2 / span 2;
-        // place-self: center;
+        grid-row: 2 / span 4;
+        align-self: start;
+    }
+
+    @media screen and (min-width: 1600px) {
+        grid-row: 2 / span 3;
+        align-self: center;
     }
 }
 
@@ -126,7 +144,7 @@
         bottom: 0;
         right: 0;
         z-index: 1;
-        height: 25%;
+        height: 20%;
         width: 100%;
         background-color: $secondary-bc-color;
     }

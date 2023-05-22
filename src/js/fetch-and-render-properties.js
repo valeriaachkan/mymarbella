@@ -5,10 +5,13 @@ import { galleryContainerEl } from '../propertyList';
 
 const APIRequest = new ResalesOnlineApi();
 
-export default async function fetchProperties(searchOptions) {
+async function fetchProperties(searchOptions) {
 	try {
 		const data = await APIRequest.fetchProperties(searchOptions);
 		const properties = data.Property;
+		const propertyCount = data.QueryInfo.PropertyCount;
+		const queryId = data.QueryInfo.QueryId;
+
 		console.log(properties);
 
 		if (properties.length === 0) {
@@ -16,10 +19,24 @@ export default async function fetchProperties(searchOptions) {
 			return;
 		}
 
+		if (propertyCount > 20) {
+			renderPropertyList(properties);
+			addLoadMoreButton(queryId);
+			return;
+		}
 		renderPropertyList(properties);
 	} catch (error) {
 		console.log(error);
 	}
+}
+
+function onLoadMoreBtnClick(e) {
+	console.log(e);
+	const loadMoreBtn = e.target;
+	const queryId = targetProperty.getAttribute('data-query');
+	console.log(loadMoreBtn);
+
+	console.log(queryId);
 }
 
 function renderPropertyList(properties) {
@@ -37,3 +54,10 @@ function renderNotFoundPage() {
 		console.log(error);
 	}
 }
+
+function addLoadMoreButton(queryId) {
+	const loadMoreBtn = `<button type="button" class="button submit-button loadMore__button" data-query=${queryId}>Load more</button>`;
+	galleryContainerEl.insertAdjacentHTML('beforeEnd', loadMoreBtn);
+}
+
+export { fetchProperties, onLoadMoreBtnClick };
