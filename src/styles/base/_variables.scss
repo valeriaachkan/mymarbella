@@ -20,14 +20,15 @@ $accent-color: #22618A;
 
 
 $secondary-text-color: #3C3C3C;
-
+ 
 $toggle-shadow-color: rgba(0, 0, 0, .2);
 
 
 $bc-color: rgba(6, 63, 150, 0.07);
 $secondary-bc-color: rgba(34, 97, 138, 0.8);
 
-$primary-font-family: "Roboto Condensed", Sans-serif;
+$primary-font-family: 'Poppins', Sans-serif;
+$font-accent: 'Poppins', sans-serif;
 
 $o-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 $input-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;

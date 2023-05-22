@@ -133,7 +133,8 @@
 
 .property-features {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 15px;
     max-width: 250px;
     margin-top: 10px;
 

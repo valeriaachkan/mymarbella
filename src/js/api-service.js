@@ -39,8 +39,8 @@ export default class ResalesOnlineApi {
 			p_PageSize: this.p_PageSize,
 			p_PageNo: this.page,
 			p_output: 'JSON',
-			P_PropertyTypes: '1-1,4-5',
-			P_MustHaveFeatures: '0',
+			// P_PropertyTypes: '1-1,4-5',
+			// P_MustHaveFeatures: '0',
 			...params,
 		});
 
@@ -52,7 +52,6 @@ export default class ResalesOnlineApi {
 			const data = await response.json();
 			console.log(data);
 
-			// this.searchQueryId =
 			this.incrementPage();
 			return data;
 		} catch (error) {
