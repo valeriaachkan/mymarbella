@@ -85,7 +85,7 @@ export default class ResalesOnlineApi {
 		}
 	}
 
-	async fetchPropertiesByQueryId(queryId) {
+	async fetchPropertiesByQueryId(queryId, transactionType) {
 		const requestOptions = {
 			method: 'GET',
 			...this.headers,
@@ -95,7 +95,7 @@ export default class ResalesOnlineApi {
 		const searchParams = new URLSearchParams({
 			p1: this.#p1,
 			p2: this.#p2,
-			p_agency_filterid: this.p_agency_filterid,
+			p_agency_filterid: transactionType,
 			p_QueryId: queryId,
 			p_PageSize: this.p_PageSize,
 			p_PageNo: this.page,
