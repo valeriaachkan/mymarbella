@@ -9,7 +9,7 @@
 .not-found__container {
     text-align: center;
 
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: $desktop) {
         width: calc((100%-40px) * 0.7);
     }
 }
@@ -37,7 +37,7 @@
     }
 }
 
-.content-wrapper {
+.content-wrapperNF {
     border-radius: 12px;
     margin-top: 30px;
     padding: 30px;
@@ -58,7 +58,7 @@
     }
 }
 
-.content-wrapper__heading {
+.content-wrapperNF__heading {
     @include h4();
     color: $secondary-text-color;
     margin-bottom: 20px;
@@ -68,7 +68,7 @@
     }
 }
 
-.content-wrapper__text {
+.content-wrapperNF__text {
     @include body-r();
     color: $secondary-text-color;
     max-width: 700px;
@@ -78,14 +78,14 @@
 
 //Get More Information
 
-.contact-details {
+.contact-detailsNF {
     @media screen and (min-width: 900px) {
         width: calc((100%-40px) * 0.3);
         margin-top: 0;
     }
 }
 
-.contact-details__thumb {
+.contact-detailsNF__thumb {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -124,7 +124,7 @@
     }
 }
 
-.contact-details__container {
+.contact-detailsNF__container {
     @media screen and (min-width: $tablet) {
         display: flex;
         flex-wrap: wrap;
@@ -137,7 +137,7 @@
     }
 }
 
-.contact-details__image {
+.contact-detailsNF__image {
     width: 100%;
 }
 

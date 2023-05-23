@@ -2,7 +2,7 @@
     padding-top: 60px;
     padding-bottom: 60px;
 
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: 900px) {
         display: flex;
         position: relative;
         gap: 40px;
@@ -13,7 +13,7 @@
 .property-info {
     position: relative;
 
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: 900px) {
         width: calc((100%-40px) * 0.7);
     }
 }
