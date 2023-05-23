@@ -17,7 +17,7 @@ async function fetchProperties(searchOptions) {
 		const propertyCount = data.QueryInfo.PropertyCount;
 		const queryId = data.QueryInfo.QueryId;
 
-		console.log(properties);
+		// console.log(properties);
 
 		if (properties.length === 0) {
 			renderNotFoundListPage();

@@ -43,7 +43,6 @@ export default class ResalesOnlineApi {
 		});
 
 		const url = `${this.#baseUrl}?${searchParams}`;
-		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
@@ -73,7 +72,6 @@ export default class ResalesOnlineApi {
 		});
 
 		const url = `${this.#baseUrl}?${searchParams}`;
-		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
@@ -105,7 +103,6 @@ export default class ResalesOnlineApi {
 		});
 
 		const url = `${this.#baseUrl}?${searchParams}`;
-		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
