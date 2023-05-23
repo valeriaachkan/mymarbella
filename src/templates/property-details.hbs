@@ -5,12 +5,12 @@
                             <p class="property-ref">{{this.Reference}}</p>
                         </div>
                         <div class="text-wrapper--spaced">
-                            <p class="property-location--details">{{this.Location}}, {{this.Area}}</p>
+                            <p class="property-location--details">{{this.Location}}, {{this.Area}}, {{this.Province}}</p>
                                 {{#if this.Price}}
                                 <p class="property-price--details">€{{price this.Price}}</p>
                                {{/if}}
                                {{#if this.RentalPrice2}}
-                               <p class="property-price--details">€{{this.RentalPrice2}} / {{this.RentalPeriod}}</p>
+                               <p class="property-price--details">{{rental-price this.RentalPrice1 this.RentalPrice2}} €{{this.RentalPrice2}} / {{this.RentalPeriod}}</p>
                                {{/if}}
                         </div>
                     </div>
@@ -223,7 +223,7 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
                                {{/if}}
                                {{#if this.RentalPrice2}}
                                 <li class="property-details__item">
-                                    Price <span class="property-details__value">€{{this.RentalPrice2}} / {{this.RentalPeriod}}</span>
+                                    Price <span class="property-details__value">{{rental-price this.RentalPrice1 this.RentalPrice2}} €{{this.RentalPrice2}} / {{this.RentalPeriod}}</span>
                                 </li>
                                {{/if}}
                                 <li class="property-details__item">
