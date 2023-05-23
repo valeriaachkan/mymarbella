@@ -91,7 +91,6 @@ export default class ResalesOnlineApi {
 			...this.headers,
 		};
 
-		console.log(this.page);
 		const searchParams = new URLSearchParams({
 			p1: this.#p1,
 			p2: this.#p2,
