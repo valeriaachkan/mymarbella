@@ -1,34 +1,36 @@
 import { getSearchCriteria } from '/src/propertyList';
 
 window.addEventListener('click', onPropertyCardClick);
-// window.addEventListener('touch', onPropertyCardClick);
-// }
 
 export default function onPropertyCardClick(e) {
-	// console.log(e.target);
-	const propertyCardEl = document.querySelector('.property-card');
-
 	if (!e.target.classList.contains('property-card')) {
 		return;
 	}
 
+	try {
+		const propertyOptions = getCardOptions(e);
+		goToPropertyDeatilsPage(propertyOptions);
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+function getCardOptions(e) {
 	const targetProperty = e.target;
 	const propertyRef = targetProperty.getAttribute('data-reference');
-	console.log(targetProperty, propertyRef);
+	const searchCriteria = getSearchCriteria();
+	let transactionType = '1';
 
-	const transactionType = getSearchCriteria().p_agency_filterid;
-	console.log(transactionType);
+	if (searchCriteria) {
+		transactionType = getSearchCriteria().p_agency_filterid;
+	}
 
 	const propertyOptions = propertyRef + '-' + transactionType;
-	console.log(propertyOptions);
-
-	goToPropertyDeatilsPage(propertyOptions);
-	// propertyCardEl.innerHTML = 'hello';
+	return propertyOptions;
 }
 
 function goToPropertyDeatilsPage(ref) {
 	const reference = JSON.stringify(ref).replaceAll('"', '');
-	console.log(reference);
 	const url = `propertyDetails.html?/ref=${reference}`;
 	window.location.href = url;
 }

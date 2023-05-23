@@ -1,6 +1,6 @@
 .gallery {
     padding: 40px 0 60px;
-    position: relative;
+    // position: relative;
 
     @media screen and (min-width: $tablet) {
         padding: 60px 0 80px;
@@ -8,6 +8,9 @@
 }
 
 .spinner-container {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
     width: 400px;
     height: 400px;
 }
@@ -115,8 +118,6 @@
 .property-content {
     padding: 20px;
     pointer-events: none;
-
-    // @media screen and (min-width: $desktop) {}
 }
 
 .property-title {
