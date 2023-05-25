@@ -23,6 +23,7 @@ function setQueryParameters() {
 	const P_Location = $('[name="P_Location"]');
 	const p_agency_filterid = $('[name=p_agency_filterid]');
 	const P_PropertyTypes = $('[name="P_PropertyTypes"]');
+	const P_PropertyFeatures = $('[name="P_PropertyFeatures"]');
 	const P_Min = $('[name="P_Min"]');
 	const P_Max = $('[name="P_Max"]');
 	const P_RefId = $('[name="P_RefId"]');
@@ -41,13 +42,22 @@ function setQueryParameters() {
 	}
 
 	Array.from(p_agency_filterid).forEach((agency) => {
+<<<<<<< Updated upstream
 		if (agency.checked) {
 			formData.p_agency_filterid = agency.value;
+=======
+		if ($(agency).attr('checked')) {
+			formData.p_agency_filterid = $(agency).val();
+>>>>>>> Stashed changes
 		}
 	});
 
 	if (P_PropertyTypes.val().toString() !== '') {
 		formData.P_PropertyTypes = P_PropertyTypes.val();
+	}
+
+	if (P_PropertyFeatures.val().toString() !== '') {
+		formData.P_MustHaveFeatures = P_PropertyFeatures.val();
 	}
 
 	if (P_Min.val().toString() !== '') {
@@ -80,8 +90,8 @@ function goToPropertyListPage(query) {
 }
 
 // handlebars function
-function greaterThanZero(value) {
-	if (value > 0) {
-		return value;
-	} else return false;
-}
+// function greaterThanZero(value) {
+// 	if (value > 0) {
+// 		return value;
+// 	} else return false;
+// }

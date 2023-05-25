@@ -1,13 +1,15 @@
-.search-form{
+.search-form {
   border-radius: 33px;
   background-color: $white;
   padding: 25px 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
+
   @media screen and (min-width:$tablet) {
     min-width: 400px;
   }
 
+<<<<<<< Updated upstream
  .button{
   font-family: $font-accent;
  } 
@@ -20,6 +22,11 @@ code{
   border-radius: 100px;
   background-color: $gray-100;
   padding: 15px;
+=======
+  .button {
+    font-family: $font-accent;
+  }
+>>>>>>> Stashed changes
 }
 
 .form-location {
@@ -27,7 +34,7 @@ code{
   flex-direction: column;
 }
 
-.input-wrapper{
+.input-wrapper {
   margin: 10px 0 0 0;
   display: flex;
   flex-direction: column;
@@ -35,20 +42,20 @@ code{
 
 
 // Type Sale / Rent input
-.action-type{
+.action-type {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 1rem;
 
-  input[type="radio"]{
+  input[type="radio"] {
     position: absolute;
     visibility: hidden;
     height: 0;
     width: 0;
   }
 
-  label{
+  label {
     text-transform: uppercase;
     text-align: center;
     cursor: pointer;
@@ -64,7 +71,7 @@ code{
    
   }
 
-  input[type="radio"] + label{
+  input[type="radio"]+label {
     position: relative;
 
 
@@ -85,25 +92,45 @@ code{
       transition: transform 250ms $o-animation-timing-function;
     }
 
+<<<<<<< Updated upstream
     &:hover{
+=======
+    &:hover {
+      opacity: 1;
+      color: $accent-color-hover;
+
+>>>>>>> Stashed changes
       &::after {
         transform: scale(1);
       }
     }
   }
-  
 
+<<<<<<< Updated upstream
   input[type="radio"]:checked + label{
     color: #181A20 !important;
   
+=======
+
+  input[type="radio"]:checked+label,
+  .clicked-label {
+    color: $accent-color-hover !important;
+    opacity: 1;
+
+>>>>>>> Stashed changes
     &::after {
       transform: scale(1);
     }
   }
 }
 
+<<<<<<< Updated upstream
 .form-label{
   color: $gray;
+=======
+.form-label {
+  color: $secondary-text-color;
+>>>>>>> Stashed changes
   font-size: 14px;
   font-family: $font-accent;
   line-height: 18px;
@@ -112,7 +139,7 @@ code{
   display: inline-block;
 }
 
-.form-input{
+.form-input {
   padding: 5px 10px;
   border-radius: 5px;
   background-color: $gray-100;
@@ -126,22 +153,23 @@ code{
   max-width: 100%;
   transition: $input-transition;
 
-  &:focus, &:focus-visible{
+  &:focus,
+  &:focus-visible {
     outline: unset !important;
   }
 }
 
-.budget-wrapper{
+.budget-wrapper {
   display: flex;
   flex-direction: row;
   gap: 5px;
   justify-content: space-between;
 }
 
-.input-budget-wrapper{
- max-width: 48%;
- width: 100%;
- position: relative;
+.input-budget-wrapper {
+  max-width: 48%;
+  width: 100%;
+  position: relative;
 }
 
 // Remove arrows on input
@@ -157,18 +185,19 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.number-input{
+.number-input {
   padding: 5px 10px 5px 17px;
   font-size: 15px;
   font-family: $primary-font-family;
   width: 100%;
 
-  &:hover, &:focus{
+  &:hover,
+  &:focus {
     background-color: #dae0e5;
   }
 }
 
-.input-placeholder{
+.input-placeholder {
   position: absolute;
   bottom: 6px;
   left: 5px;
@@ -180,12 +209,12 @@ input[type=number] {
 // bootstrap elements
 .filter-option,
 span.text,
-.btn{
+.btn {
   font-family: $font-accent;
 }
 
 
-.button-wrapper{
+.button-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -193,7 +222,8 @@ span.text,
   margin-top: 1rem;
   gap: 8px;
 
-  .button, .submit-button-wrapper{
+  .button,
+  .submit-button-wrapper {
     min-width: 100%;
 
     @media screen and (min-width:$tablet) {
@@ -203,39 +233,52 @@ span.text,
   }
 }
 
-.submit-button-wrapper{
+.submit-button-wrapper {
   position: relative;
 }
 
-.search-icon{
+.search-icon {
   position: absolute;
   z-index: 10;
   right: 28px;
   top: 6px;
 
-  svg{
+  svg {
     width: 15px;
   }
 }
 
-.all-regions{
+.all-regions {
   font-weight: 700;
 }
 
-.adv-search-wrapper{
+.adv-search-wrapper {
   display: none;
 
-  &.is-open{
-    
-  }
+  &.is-open {}
 }
 
 // select wrapper
-.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
   width: 100%;
 }
 
-.bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle{
+.bootstrap-select .dropdown-toggle:focus,
+.bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
   outline-offset: 0;
   outline: unset !important
 }
+
+.region {
+  font-weight: bold;
+  // font-style:normal;
+  // text-decoration: underline !important;
+  pointer-events: none;
+  background-color: $gray-100;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+// .dropdown {
+//   max-height: 320px !important;
+//   will-change: unset !important;
+// }

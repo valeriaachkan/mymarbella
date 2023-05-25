@@ -7,6 +7,39 @@
     }
 }
 
+.gallery__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px !important;
+}
+
+.sortType {
+
+
+    &__menu {
+        @include body-r();
+        outline: 0;
+        padding: 2px;
+        color: $secondary-text-color;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, .15);
+        border-radius: 0.25rem;
+    }
+
+    &__label {
+        @include body-r();
+        color: $secondary-text-color;
+        margin-right: 7px;
+    }
+
+    &__option {
+        @include body-r();
+        color: $secondary-text-color;
+    }
+}
+
 .spinner-container {
     position: relative;
     margin-right: auto;
@@ -164,9 +197,7 @@
     justify-content: space-between;
     color: $white;
     background-color: $accent-color;
-    max-width: 160px;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    min-width: 157px;
     border: none;
 
     &:hover {

@@ -41,10 +41,12 @@ export default class ResalesOnlineApi {
 			p_output: 'JSON',
 			...params,
 		});
-
 		const url = `${this.#baseUrl}?${searchParams}`;
 		console.log(url);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 		try {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
