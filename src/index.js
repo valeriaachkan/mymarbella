@@ -23,7 +23,8 @@ function setQueryParameters() {
 	const P_Location = $('[name="P_Location"]');
 	const p_agency_filterid = $('[name=p_agency_filterid]');
 	const P_PropertyTypes = $('[name="P_PropertyTypes"]');
-	const P_Min = $('[name="P_Min"]');
+	const P_PropertyFeatures = $('[name="P_PropertyFeatures"]');
+	const P_Min = $('[name="P_Min"]');https://github.com/valeriaachkan/mymarbella
 	const P_Max = $('[name="P_Max"]');
 	const P_RefId = $('[name="P_RefId"]');
 	const P_Beds = $('[name="P_Beds"]');
@@ -37,6 +38,7 @@ function setQueryParameters() {
 		formData.P_Location = P_Location.val();
 	}
 
+
 	Array.from(p_agency_filterid).forEach(agency => {
 		if($(agency).attr('checked')){
 			formData.p_agency_filterid = $(agency).val();
@@ -45,6 +47,10 @@ function setQueryParameters() {
 
 	if (P_PropertyTypes.val().toString() !== '') {
 		formData.P_PropertyTypes = P_PropertyTypes.val();
+	}
+
+	if (P_PropertyFeatures.val().toString() !== '') {
+		formData.P_MustHaveFeatures = P_PropertyFeatures.val();
 	}
 
 	if (P_Min.val().toString() !== '') {
@@ -77,8 +83,8 @@ function goToPropertyListPage(query) {
 }
 
 // handlebars function
-function greaterThanZero(value) {
-	if (value > 0) {
-		return value;
-	} else return false;
-}
+// function greaterThanZero(value) {
+// 	if (value > 0) {
+// 		return value;
+// 	} else return false;
+// }

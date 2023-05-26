@@ -41,8 +41,8 @@ export default class ResalesOnlineApi {
 			p_output: 'JSON',
 			...params,
 		});
-
 		const url = `${this.#baseUrl}?${searchParams}`;
+
 
 		try {
 			const response = await fetch(url, requestOptions);

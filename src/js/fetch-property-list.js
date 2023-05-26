@@ -38,6 +38,7 @@ async function fetchProperties(searchOptions) {
 }
 
 async function onLoadMoreBtnClick(e) {
+	console.log(e);
 	spinner.start();
 	toggleClassFromSpinner();
 	const loadMoreBtn = e.currentTarget;
