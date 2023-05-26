@@ -42,7 +42,7 @@ export default class ResalesOnlineApi {
 			...params,
 		});
 		const url = `${this.#baseUrl}?${searchParams}`;
-
+		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);

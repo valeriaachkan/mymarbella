@@ -24,7 +24,7 @@ function setQueryParameters() {
 	const p_agency_filterid = $('[name=p_agency_filterid]');
 	const P_PropertyTypes = $('[name="P_PropertyTypes"]');
 	const P_PropertyFeatures = $('[name="P_PropertyFeatures"]');
-	const P_Min = $('[name="P_Min"]');https://github.com/valeriaachkan/mymarbella
+	const P_Min = $('[name="P_Min"]');
 	const P_Max = $('[name="P_Max"]');
 	const P_RefId = $('[name="P_RefId"]');
 	const P_Beds = $('[name="P_Beds"]');
@@ -33,14 +33,16 @@ function setQueryParameters() {
 	if (P_Location.val().includes('all-regions')) {
 		// if input value is all regions
 		formData.P_Location = '';
-	} else if (P_Location.val().toString() !== '' && !P_Location.val().includes('all-regions')) {
+	} else if (
+		P_Location.val().toString() !== '' &&
+		!P_Location.val().includes('all-regions')
+	) {
 		// if input value is not empty and not all regions
 		formData.P_Location = P_Location.val();
 	}
 
-
-	Array.from(p_agency_filterid).forEach(agency => {
-		if($(agency).attr('checked')){
+	Array.from(p_agency_filterid).forEach((agency) => {
+		if ($(agency).attr('checked')) {
 			formData.p_agency_filterid = $(agency).val();
 		}
 	});

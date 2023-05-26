@@ -22,12 +22,12 @@ async function initPage() {
 		spinner.stop();
 		galleryContainerEl.addEventListener('click', onPropertyCardClick);
 
-		const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
-		loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
-		// try {
-		// } catch (error) {
-		// 	console.log(error);
-		// }
+		try {
+			const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
+			loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
+		} catch (error) {
+			console.log(error);
+		}
 
 		const sortTypeEl = document.querySelector('#sortType');
 		console.log(sortTypeEl.value);
