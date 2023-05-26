@@ -34,7 +34,7 @@ function renderNotFoundListPage() {
 
 //Property details render
 function renderPropertyDetails(property) {
-	console.log('hello', property);
+	console.log(property);
 	try {
 		propertyDetailsContainer.innerHTML = propertyDetTpl(property);
 		importSlickSlider();

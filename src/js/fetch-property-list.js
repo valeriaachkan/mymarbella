@@ -1,6 +1,7 @@
 import ResalesOnlineApi from './api-service';
 import SpinnerLoad from '/src/js/spinner';
 import { galleryContainerEl } from '../propertyList';
+import { getSearchCriteria } from '../propertyList';
 import {
 	renderMoreProperties,
 	renderNotFoundListPage,
@@ -17,7 +18,7 @@ async function fetchProperties(searchOptions) {
 		const propertyCount = data.QueryInfo.PropertyCount;
 		const queryId = data.QueryInfo.QueryId;
 
-		console.log(properties);
+		// console.log(properties);
 
 		if (properties.length === 0) {
 			renderNotFoundListPage();
@@ -44,7 +45,12 @@ async function onLoadMoreBtnClick(e) {
 	const queryId = loadMoreBtn.getAttribute('data-query');
 
 	try {
-		const data = await APIRequest.fetchPropertiesByQueryId(queryId);
+		const transactionType = getSearchCriteria().p_agency_filterid;
+
+		const data = await APIRequest.fetchPropertiesByQueryId(
+			queryId,
+			transactionType
+		);
 		const newProperties = data.Property;
 		// console.log(newProperties);
 

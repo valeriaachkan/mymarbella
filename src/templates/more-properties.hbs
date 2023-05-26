@@ -8,13 +8,13 @@
             {{#if this.Price}}
                 <div class="property-price">€ {{price this.Price}}</div>
             {{else}}
-                <div class="property-price">€{{this.RentalPrice2}} / {{this.RentalPeriod}}</div>
+                <div class="property-price">{{rental-price this.RentalPrice1 this.RentalPrice2}} €{{this.RentalPrice2}} / {{this.RentalPeriod}}</div>
             {{/if}}
         </div>
 
         <div class="property-content">
             <h4 class="property-title">{{this.PropertyType.NameType}}</h4>
-            <p class="property-location">{{this.Location}}, {{this.Area}}</p>
+            <p class="property-location">{{this.Location}}, {{this.Area}}, {{this.Province}}</p>
             <div class="line"></div>
             <ul class="property-features">
                  <li class="property-features__item">
