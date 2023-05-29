@@ -9,9 +9,19 @@
 
 .gallery__options {
     display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     margin-bottom: 40px !important;
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px !important;
+    }
 }
 
 .sortType {
@@ -20,11 +30,11 @@
     &__menu {
         @include body-r();
         outline: 0;
-        padding: 2px;
+        padding: 4px;
         color: $secondary-text-color;
-        background-color: #fff;
         background-clip: padding-box;
-        border: 1px solid rgba(0, 0, 0, .15);
+        background-color: #f8f9fa;
+        border: 1px solid #f8f9fa;
         border-radius: 0.25rem;
     }
 
@@ -40,12 +50,25 @@
     }
 }
 
+
 .spinner-container {
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    width: 400px;
+    width: 100%;
     height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 400px) {
+        width: 400px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 812px;
+    }
+
+    @media screen and (min-width: 1600px) {
+        width: 1022px;
+    }
 }
 
 .property-list {
@@ -169,8 +192,9 @@
 .property-features {
     display: flex;
     justify-content: flex-start;
-    gap: 15px;
-    max-width: 250px;
+    gap: 20px;
+    min-width: 250px;
+    max-width: 300px;
     margin-top: 10px;
 
     &__item {

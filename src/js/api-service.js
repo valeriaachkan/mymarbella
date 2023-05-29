@@ -16,6 +16,7 @@ export default class ResalesOnlineApi {
 		this.P_Currency = 'EUR';
 		this.p_PageSize = '20'; //Amount of properties returned. Default: 10. Max. value:40
 		this.page = 1; //Page number of the search results to be returned. Default:1
+		this.sortType = 0;
 		this.p_agency_filterid = '1'; //1-Sale, 2-STRent, 3-LTRent
 		// this.P_Location = ''; //Specific Location or csv list of Locations (e.g. Calahonda, Elviria)
 		// this.P_PropertyTypes = '1-1,4-5'; //List of one or more Option Values
@@ -40,14 +41,15 @@ export default class ResalesOnlineApi {
 			p_PageNo: this.page,
 			p_output: 'JSON',
 			...params,
+			P_SortType: this.sortType,
 		});
-		const url = `${this.#baseUrl}?${searchParams}`;
+		let url = `${this.#baseUrl}?${searchParams}`;
 		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
-			// console.log(data);
+			console.log(data);
 
 			this.incrementPage();
 			return data;
@@ -102,6 +104,7 @@ export default class ResalesOnlineApi {
 		});
 
 		const url = `${this.#baseUrl}?${searchParams}`;
+		console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
@@ -121,5 +124,16 @@ export default class ResalesOnlineApi {
 
 	resetPage() {
 		this.page = 1;
+	}
+
+	setSortType(type) {
+		return (this.sortType = type);
+	}
+
+	get page() {
+		return this.p_PageNo;
+	}
+	set page(num) {
+		return (this.p_PageNo = num);
 	}
 }

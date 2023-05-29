@@ -14,7 +14,15 @@
 
         <div class="property-content">
             <h4 class="property-title">{{this.PropertyType.NameType}}</h4>
+            {{#if this.Location}}   
             <p class="property-location">{{this.Location}}, {{this.Area}}, {{this.Province}}</p>
+            {{else}}
+            {{#if this.Area}} 
+            <p class="property-location">{{this.Area}}, {{this.Province}}</p>
+            {{else}}
+            <p class="property-location">{{this.Province}}</p>
+            {{/if}}
+            {{/if}}
             <div class="line"></div>
             <ul class="property-features">
                  <li class="property-features__item">

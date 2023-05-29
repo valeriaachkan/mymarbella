@@ -22,28 +22,43 @@ async function initPage() {
 		spinner.stop();
 		galleryContainerEl.addEventListener('click', onPropertyCardClick);
 
-		try {
-			const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
-			loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
-		} catch (error) {
-			console.log(error);
-		}
+		// try {
+		// 	const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
+		// 	loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
+		// } catch (error) {
+		// 	console.log(error);
+		// }
 
 		const sortTypeEl = document.querySelector('#sortType');
 		console.log(sortTypeEl.value);
 		sortTypeEl.addEventListener('change', onSortTypeClick);
 	}
+	// if (document.querySelector('.loadMore__button')) {
+	// 	console.log('btn is here');
+	// 	const loadMoreBtn = document.querySelector('.loadMore__button');
+	// 	loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
+	// }
 }
 
 async function onSortTypeClick(e) {
+	galleryContainerEl.innerHTML =
+		'<div class="spinner-container" id="spinner-container"></div>';
+	spinner.start();
 	const selectedOption = e.target.value;
 	console.log(selectedOption);
 
 	const searchCriteria = getSearchCriteria();
-	searchCriteria.P_SortType = selectedOption;
+	// searchCriteria.P_SortType = selectedOption;
 
-	console.log(searchCriteria);
-	await fetchProperties(searchCriteria);
+	console.log('query', searchCriteria);
+
+	let isListRendered = false;
+	isListRendered = await fetchProperties(searchCriteria, selectedOption);
+
+	if (isListRendered) {
+		spinner.stop();
+		activateLoadMoreBtn();
+	}
 }
 
 function getSearchCriteria() {
@@ -60,5 +75,12 @@ function getSearchCriteria() {
 	return searchCriteria;
 }
 
+function activateLoadMoreBtn() {
+	try {
+		const loadMoreBtn = document.querySelector('.loadMore__button');
+		loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
+	} catch (error) {
+		console.log(error);
+	}
+}
 export { galleryContainerEl, getSearchCriteria };
-//https://booking-bff-test.up.railway.app/searchProperties?p1=1014905&p2=ca3ca58bbda23243ae3ed9e97098099d7fff44d7&p_agency_filterid=1&p_sandbox=true&p_PageSize=20&p_PageNo=1&p_output=JSON&P_Location=Altos+de+los+Monteros&P_MustHaveFeatures=%3D1%261Parking2%3D1%261Pool6%3D1
