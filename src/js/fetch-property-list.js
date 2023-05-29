@@ -11,14 +11,20 @@ import {
 const APIRequest = new ResalesOnlineApi();
 const spinner = new SpinnerLoad();
 
-async function fetchProperties(searchOptions) {
+async function fetchProperties(searchOptions, sortType) {
 	try {
+		if (sortType) {
+			console.log('sortirovka', sortType);
+			APIRequest.page = 1;
+			APIRequest.setSortType(sortType);
+		}
 		const data = await APIRequest.fetchProperties(searchOptions);
 		const properties = data.Property;
 		const propertyCount = data.QueryInfo.PropertyCount;
 		const queryId = data.QueryInfo.QueryId;
 
-		// console.log(properties);
+		console.log(properties);
+		console.log(propertyCount);
 
 		if (properties.length === 0) {
 			renderNotFoundListPage();

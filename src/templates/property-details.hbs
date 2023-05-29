@@ -252,14 +252,17 @@ m70 0 c0 -20 -5 -25 -25 -25 -20 0 -25 5 -25 25 0 20 5 25 25 25 20 0 25 -5
                         </div>
                     </div>
 
-                    {{!-- {{#if this.PropertyFeatures.Category.Type}}
+                    {{#if this.PropertyFeatures.Category}}
                     <div class="content-wrapper property-amenities">
                         <h3 class="content-wrapper__heading">Features & Amenities</h3>
                         <ul class="property-amenities__list">
                         {{#each this.PropertyFeatures.Category}}
-                            <li class="property-amenities__item">Barbeque</li>
+                            <li class="property-amenities__item">
+                                <p class="property-amenities__type">{{this.Type}}</p>
+                                <p class="property-amenities__value">{{string this.Value}}</p>
+                            </li>
                         {{/each}}
                         </ul>
                     </div>
-                    {{/if}} --}}
+                    {{/if}}
                 </div>
