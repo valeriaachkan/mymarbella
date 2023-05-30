@@ -13,10 +13,8 @@ export function customFormInit() {
 	actionLabels.on('click', function(e){
 		const clickedInput = $(e.target).prev();
 		const clickedLabel = $(e.target);
-			console.log({clickedInput})
 
 		Array.from(actionInputs).forEach(input => {
-			console.log($(input).next());
 			$(input).next().removeClass('clicked-label')
 			$(input).removeAttr('checked')
 			
