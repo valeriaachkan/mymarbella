@@ -22,9 +22,7 @@ const propertyDetailsContainer = document.querySelector('.property-info');
 
 function getPropertyOptions() {
 	const queryString = window.location.search;
-	// console.log(queryString);
 	const options = queryString.split('=')[1].split('-');
-	// console.log(options);
 
 	return options;
 }

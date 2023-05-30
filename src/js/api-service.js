@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 export default class ResalesOnlineApi {
 	#p1;
 	#p2;
@@ -19,9 +17,6 @@ export default class ResalesOnlineApi {
 		this.sortType = 0;
 		this.p_agency_filterid = '1'; //1-Sale, 2-STRent, 3-LTRent
 		// this.P_Location = ''; //Specific Location or csv list of Locations (e.g. Calahonda, Elviria)
-		// this.P_PropertyTypes = '1-1,4-5'; //List of one or more Option Values
-		// this.P_Max = '';
-		// this.P_Min = '';
 		// this.P_MustHaveFeatures = ''; //If features are selected, affects either the sort order or the search results
 		// this.searchQueryId = ''; //The unique identifier for this search (returned by the initial query). SearchProperties?P_PageSize=5&P_QueryId=11111111-aaa&P_PageNo=2. Will return the next 5 properties from the previous search
 	}
@@ -36,20 +31,20 @@ export default class ResalesOnlineApi {
 			p1: this.#p1,
 			p2: this.#p2,
 			p_agency_filterid: '1',
+			p_output: 'JSON',
 			p_sandbox: true,
 			p_PageSize: this.p_PageSize,
 			p_PageNo: this.page,
-			p_output: 'JSON',
-			...params,
 			P_SortType: this.sortType,
+			...params,
 		});
 		let url = `${this.#baseUrl}?${searchParams}`;
-		console.log(url);
+		// console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
-			console.log(data);
+			// console.log(data);
 
 			this.incrementPage();
 			return data;
@@ -79,7 +74,6 @@ export default class ResalesOnlineApi {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
 			const { Property } = data;
-			// console.log(...Property);
 
 			return Property;
 		} catch (error) {
@@ -104,12 +98,11 @@ export default class ResalesOnlineApi {
 		});
 
 		const url = `${this.#baseUrl}?${searchParams}`;
-		console.log(url);
+		// console.log(url);
 
 		try {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
-			// console.log(data);
 
 			this.incrementPage();
 			return data;
@@ -128,6 +121,10 @@ export default class ResalesOnlineApi {
 
 	setSortType(type) {
 		return (this.sortType = type);
+	}
+
+	setLastPage(totalProp) {
+		return (this.lastPage = Math.ceil(totalProp / this.p_PageSize));
 	}
 
 	get page() {

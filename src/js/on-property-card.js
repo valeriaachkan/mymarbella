@@ -1,6 +1,6 @@
 import { getSearchCriteria } from '/src/propertyList';
 
-window.addEventListener('click', onPropertyCardClick);
+// window.addEventListener('click', onPropertyCardClick);
 
 export default function onPropertyCardClick(e) {
 	if (!e.target.classList.contains('property-card')) {
