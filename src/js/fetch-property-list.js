@@ -23,19 +23,18 @@ async function fetchProperties(searchOptions, sortType) {
 		const propertyCount = data.QueryInfo.PropertyCount;
 		const queryId = data.QueryInfo.QueryId;
 
-		console.log(properties);
-		console.log(propertyCount);
-
 		if (properties.length === 0) {
 			renderNotFoundListPage();
 			return false;
 		}
 
 		if (propertyCount > 20) {
+			showGalleryOptions();
 			renderPropertyList(properties);
 			addLoadMoreButton(queryId);
 			return true;
 		}
+		showGalleryOptions();
 		renderPropertyList(properties);
 		return true;
 	} catch (error) {
@@ -44,7 +43,6 @@ async function fetchProperties(searchOptions, sortType) {
 }
 
 async function onLoadMoreBtnClick(e) {
-	console.log(e);
 	spinner.start();
 	toggleClassFromSpinner();
 	const loadMoreBtn = e.currentTarget;
@@ -57,8 +55,13 @@ async function onLoadMoreBtnClick(e) {
 			queryId,
 			transactionType
 		);
+		const propertyCount = data.QueryInfo.PropertyCount;
+		const currentPage = data.QueryInfo.CurrentPage;
 		const newProperties = data.Property;
-		// console.log(newProperties);
+
+		if (Math.ceil(propertyCount / 20) === currentPage) {
+			hideLoadMoreButton();
+		}
 
 		spinner.stop();
 		renderMoreProperties(newProperties);
@@ -73,6 +76,15 @@ function addLoadMoreButton(queryId) {
 	galleryContainerEl.insertAdjacentHTML('beforeEnd', loadMoreBtn);
 }
 
+function hideLoadMoreButton() {
+	const loadMoreBtn = document.querySelector('.loadMore__button');
+	loadMoreBtn.classList.add('visually-hidden');
+}
+
+function showGalleryOptions() {
+	const galleryOptionsEl = document.querySelector('.gallery__options');
+	galleryOptionsEl.classList.remove('visually-hidden');
+}
 function toggleClassFromSpinner() {
 	const spinnerContainer = document.querySelector('.spinner-container');
 	spinnerContainer.classList.toggle('visually-hidden');

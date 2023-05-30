@@ -83,10 +83,3 @@ function goToPropertyListPage(query) {
 	sessionStorage.setItem('propertySearchData', serializedData);
 	window.location.href = 'propertyList.html';
 }
-
-// handlebars function
-// function greaterThanZero(value) {
-// 	if (value > 0) {
-// 		return value;
-// 	} else return false;
-// }

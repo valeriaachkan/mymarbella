@@ -34,7 +34,9 @@ function renderNotFoundListPage() {
 
 //Property details render
 function renderPropertyDetails(property) {
-	console.log(property);
+	const searchQueryId = JSON.parse(sessionStorage.getItem('searchQueryId'));
+	property.searchQueryId = searchQueryId;
+	// console.log(property);
 	try {
 		propertyDetailsContainer.innerHTML = propertyDetTpl(property);
 		importSlickSlider();

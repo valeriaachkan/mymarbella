@@ -14,30 +14,16 @@ async function initPage() {
 	spinner.start();
 	let isListRendered = false;
 	const searchCriteria = getSearchCriteria();
-	// console.log(searchCriteria);
 
 	isListRendered = await fetchProperties(searchCriteria);
 
 	if (isListRendered) {
 		spinner.stop();
 		galleryContainerEl.addEventListener('click', onPropertyCardClick);
-
-		// try {
-		// 	const loadMoreBtn = document.querySelector('.loadMore__button') ?? null;
-		// 	loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
-		// } catch (error) {
-		// 	console.log(error);
-		// }
-
+		activateLoadMoreBtn();
 		const sortTypeEl = document.querySelector('#sortType');
-		console.log(sortTypeEl.value);
 		sortTypeEl.addEventListener('change', onSortTypeClick);
 	}
-	// if (document.querySelector('.loadMore__button')) {
-	// 	console.log('btn is here');
-	// 	const loadMoreBtn = document.querySelector('.loadMore__button');
-	// 	loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
-	// }
 }
 
 async function onSortTypeClick(e) {
@@ -45,12 +31,10 @@ async function onSortTypeClick(e) {
 		'<div class="spinner-container" id="spinner-container"></div>';
 	spinner.start();
 	const selectedOption = e.target.value;
-	console.log(selectedOption);
+	const serializedData = JSON.stringify(selectedOption);
+	sessionStorage.setItem('sortType', serializedData);
 
 	const searchCriteria = getSearchCriteria();
-	// searchCriteria.P_SortType = selectedOption;
-
-	console.log('query', searchCriteria);
 
 	let isListRendered = false;
 	isListRendered = await fetchProperties(searchCriteria, selectedOption);
@@ -62,17 +46,33 @@ async function onSortTypeClick(e) {
 }
 
 function getSearchCriteria() {
-	const searchCriteria = JSON.parse(
-		sessionStorage.getItem('propertySearchData')
-	);
+	try {
+		const searchCriteria = JSON.parse(
+			sessionStorage.getItem('propertySearchData')
+		);
+		const sortType = JSON.parse(sessionStorage.getItem('sortType'));
 
-	if (searchCriteria.P_MustHaveFeatures) {
-		searchCriteria.P_MustHaveFeatures = [
-			'=1&' + searchCriteria.P_MustHaveFeatures.join('&'),
-		];
+		if (sortType) {
+			searchCriteria.P_SortType = sortType;
+			setAttributeOnSortType(sortType);
+		}
+
+		if (searchCriteria.P_MustHaveFeatures) {
+			searchCriteria.P_MustHaveFeatures = [
+				'1&' + searchCriteria.P_MustHaveFeatures.join('&'),
+			];
+		}
+		return searchCriteria;
+	} catch (error) {
+		console.log(error);
 	}
-	// console.log(searchCriteria);
-	return searchCriteria;
+}
+
+function setAttributeOnSortType(sortType) {
+	const sortTypeEl = document.querySelector('#sortType');
+
+	sortTypeEl.childNodes[0].removeAttribute('selected');
+	sortTypeEl.childNodes[sortType].setAttribute('selected', 'selected');
 }
 
 function activateLoadMoreBtn() {

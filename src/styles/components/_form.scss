@@ -5,6 +5,7 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 
+
   @media screen and (min-width:$tablet) {
     min-width: 425px;
   }
@@ -170,7 +171,7 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .number-input {
@@ -243,7 +244,7 @@ span.text,
 .adv-search-wrapper {
   display: none;
 
-  &.is-open {}
+  // &.is-open {}
 }
 
 // select wrapper

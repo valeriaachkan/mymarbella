@@ -1,6 +1,5 @@
 .gallery {
     padding: 40px 0 60px;
-    // position: relative;
 
     @media screen and (min-width: $tablet) {
         padding: 60px 0 80px;
@@ -9,7 +8,6 @@
 
 .gallery__options {
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
@@ -228,6 +226,11 @@
         background-color: $accent-color-hover;
         color: $white;
         cursor: pointer;
+    }
+
+    &--details {
+        max-width: 157px;
+        margin-bottom: 25px;
     }
 }
 
