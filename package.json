@@ -35,7 +35,7 @@
     "bootstrap-select": "1.7.4",
     "file-loader": "^6.2.0",
     "handlebars-loader": "^1.7.3",
-    "jquery": "^2.2.4",
+    "jquery": "^3.6.4",
     "modern-normalize": "^1.1.0",
     "slick-carousel": "^1.8.1",
     "spin.js": "^4.1.1"
