@@ -14,6 +14,13 @@ async function initPage() {
 	spinner.start();
 	let isListRendered = false;
 	const searchCriteria = getSearchCriteria();
+	const currentPage = JSON.parse(sessionStorage.getItem('currentPage'));
+
+	if (currentPage) {
+		searchCriteria.p_PageNo = currentPage;
+
+		console.log('look at query', searchCriteria);
+	}
 
 	isListRendered = await fetchProperties(searchCriteria);
 
@@ -62,6 +69,7 @@ function getSearchCriteria() {
 				'1&' + searchCriteria.P_MustHaveFeatures.join('&'),
 			];
 		}
+
 		return searchCriteria;
 	} catch (error) {
 		console.log(error);

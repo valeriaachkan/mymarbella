@@ -49,7 +49,14 @@ async function onLoadMoreBtnClick(e) {
 	const queryId = loadMoreBtn.getAttribute('data-query');
 
 	try {
-		const transactionType = getSearchCriteria().p_agency_filterid;
+		const searchCriteria = getSearchCriteria();
+		const transactionType = searchCriteria.p_agency_filterid;
+		console.log(searchCriteria);
+		const currntPage = getCurrentPageFromSessionStorage();
+
+		if (currntPage) {
+			APIRequest.page = currntPage + 1;
+		}
 
 		const data = await APIRequest.fetchPropertiesByQueryId(
 			queryId,
@@ -57,6 +64,7 @@ async function onLoadMoreBtnClick(e) {
 		);
 		const propertyCount = data.QueryInfo.PropertyCount;
 		const currentPage = data.QueryInfo.CurrentPage;
+		addCurrentPageToSessionStorage(currentPage);
 		const newProperties = data.Property;
 
 		if (Math.ceil(propertyCount / 20) === currentPage) {
@@ -69,6 +77,15 @@ async function onLoadMoreBtnClick(e) {
 	} catch (error) {
 		console.log(error);
 	}
+}
+
+function addCurrentPageToSessionStorage(page) {
+	const serializedData = JSON.stringify(page);
+	sessionStorage.setItem('currentPage', serializedData);
+}
+function getCurrentPageFromSessionStorage() {
+	const currntPage = JSON.parse(sessionStorage.getItem('currentPage'));
+	return currntPage;
 }
 
 function addLoadMoreButton(queryId) {
