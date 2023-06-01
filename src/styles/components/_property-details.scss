@@ -234,7 +234,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        max-height: 120px;
+        max-height: 100px;
     }
 }
 
@@ -246,7 +246,7 @@
     color: $secondary-text-color;
 
     @media screen and (min-width: $tablet) {
-        max-width: calc((100% - 30px) / 2);
+        max-width: calc((100% - 40px) / 2);
     }
 
     &:not(:last-child) {
@@ -268,8 +268,6 @@
 .property-amenities__list {
     display: flex;
     flex-direction: column;
-
-
 }
 
 .property-amenities__item {

@@ -14,7 +14,6 @@ const spinner = new SpinnerLoad();
 async function fetchProperties(searchOptions, sortType) {
 	try {
 		if (sortType) {
-			console.log('sortirovka', sortType);
 			APIRequest.page = 1;
 			APIRequest.setSortType(sortType);
 		}
@@ -51,7 +50,7 @@ async function onLoadMoreBtnClick(e) {
 	try {
 		const searchCriteria = getSearchCriteria();
 		const transactionType = searchCriteria.p_agency_filterid;
-		console.log(searchCriteria);
+		// console.log(searchCriteria);
 		const currntPage = getCurrentPageFromSessionStorage();
 
 		if (currntPage) {

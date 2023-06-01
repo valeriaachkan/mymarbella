@@ -18,8 +18,6 @@ async function initPage() {
 
 	if (currentPage) {
 		searchCriteria.p_PageNo = currentPage;
-
-		console.log('look at query', searchCriteria);
 	}
 
 	isListRendered = await fetchProperties(searchCriteria);
@@ -78,9 +76,10 @@ function getSearchCriteria() {
 
 function setAttributeOnSortType(sortType) {
 	const sortTypeEl = document.querySelector('#sortType');
-
-	sortTypeEl.childNodes[0].removeAttribute('selected');
-	sortTypeEl.childNodes[sortType].setAttribute('selected', 'selected');
+	if (sortType !== 0) {
+		sortTypeEl.childNodes[0].removeAttribute('selected');
+		sortTypeEl.childNodes[sortType].setAttribute('selected', 'selected');
+	}
 }
 
 function activateLoadMoreBtn() {
