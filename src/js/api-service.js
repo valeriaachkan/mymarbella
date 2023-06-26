@@ -5,7 +5,7 @@ export default class ResalesOnlineApi {
 
 	constructor() {
 		this.#p1 = '1014905';
-		this.#p2 = 'ca3ca58bbda23243ae3ed9e97098099d7fff44d7';
+		this.#p2 = 'dabae7541606c4138fe79c5b7e1687779a9eb866';
 		this.#baseUrl = 'https://booking-bff-test.up.railway.app/searchProperties';
 		this.headers = {
 			'Access-Control-Allow-Origin': 'https://backend.resales-online.com',
