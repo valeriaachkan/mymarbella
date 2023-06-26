@@ -14,7 +14,7 @@
     position: relative;
 
     @media screen and (min-width: 900px) {
-        width: calc((100%-40px) * 0.7);
+        width: calc((100% - 40px) * 0.7);
     }
 }
 
@@ -310,7 +310,7 @@
     @media screen and (min-width: 900px) {
         position: sticky;
         top: 0;
-        width: calc((100%-40px) * 0.3);
+        width: calc((100% - 40px) * 0.3);
         margin-top: 0;
         height: fit-content;
     }
