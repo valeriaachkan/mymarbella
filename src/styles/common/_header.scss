@@ -31,11 +31,23 @@
 }
 
 .logo {
-    width: 65px;
+    // width: 65px;
 
-    @media screen and (min-width: $desktop) {
-        width: 96px;
-        height: 87px;
+    // @media screen and (min-width: $desktop) {
+    //     width: 96px;
+    //     height: 87px;
+    // }
+    //* temporary text
+    font-family: $primary-font-family;
+    color: $accent-color-hover;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    font-style: italic;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $tablet) {
+       font-size: 24px;
     }
 }
 
