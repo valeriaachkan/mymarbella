@@ -260,13 +260,11 @@ span.text,
   outline: unset !important
 }
 
-.region {
+.bootstrap-select .dropdown-header {
   font-weight: bold;
-  // font-style:normal;
-  // text-decoration: underline !important;
-  pointer-events: none;
   background-color: $gray-100;
   color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
 }
 
 // .dropdown {
