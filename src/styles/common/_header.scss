@@ -31,12 +31,11 @@
 }
 
 .logo {
-    // width: 65px;
+    max-width: 155px;
 
-    // @media screen and (min-width: $desktop) {
-    //     width: 96px;
-    //     height: 87px;
-    // }
+    @media screen and (min-width: $desktop) {
+       max-width: 155px;
+    }
     //* temporary text
     font-family: $primary-font-family;
     color: $accent-color-hover;

@@ -42,7 +42,7 @@ function setQueryParameters() {
 	}
 
 	Array.from(p_agency_filterid).forEach((agency) => {
-		if ($(agency).attr('checked')) {
+		if ($(agency).prop('checked')) {
 			formData.p_agency_filterid = $(agency).val();
 		}
 	});

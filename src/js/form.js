@@ -16,11 +16,11 @@ export function customFormInit() {
 
 		Array.from(actionInputs).forEach(input => {
 			$(input).next().removeClass('clicked-label')
-			$(input).removeAttr('checked')
-			
-			clickedInput.attr('checked', 'true');
-			clickedLabel.addClass('clicked-label');
+			$(input).prop('checked', false).removeAttr('checked');
 		})
+
+		clickedInput.prop('checked', true).attr('checked', 'checked');
+		clickedLabel.addClass('clicked-label');
 	})
 
 	$(document).ready(function(){

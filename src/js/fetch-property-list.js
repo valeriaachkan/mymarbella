@@ -18,16 +18,16 @@ async function fetchProperties(searchOptions, sortType) {
 			APIRequest.setSortType(sortType);
 		}
 		const data = await APIRequest.fetchProperties(searchOptions);
-		const properties = data.Property;
-		const propertyCount = data.QueryInfo.PropertyCount;
-		const queryId = data.QueryInfo.QueryId;
+		const properties = data?.Property || [];
+		const propertyCount = Number(data?.QueryInfo?.PropertyCount || 0);
+		const queryId = data?.QueryInfo?.QueryId;
 
-		if (properties.length === 0) {
+		if (!Array.isArray(properties) || properties.length === 0) {
 			renderNotFoundListPage();
 			return false;
 		}
 
-		if (propertyCount > 20) {
+		if (propertyCount > Number(APIRequest.p_PageSize) && queryId) {
 			showGalleryOptions();
 			renderPropertyList(properties);
 			addLoadMoreButton(queryId);
@@ -49,7 +49,7 @@ async function onLoadMoreBtnClick(e) {
 
 	try {
 		const searchCriteria = getSearchCriteria();
-		const transactionType = searchCriteria.p_agency_filterid;
+		const transactionType = searchCriteria?.p_agency_filterid || '1';
 		// console.log(searchCriteria);
 		const currntPage = getCurrentPageFromSessionStorage();
 
@@ -61,12 +61,22 @@ async function onLoadMoreBtnClick(e) {
 			queryId,
 			transactionType
 		);
-		const propertyCount = data.QueryInfo.PropertyCount;
-		const currentPage = data.QueryInfo.CurrentPage;
+		const propertyCount = Number(data?.QueryInfo?.PropertyCount || 0);
+		const currentPage = Number(data?.QueryInfo?.CurrentPage || 0);
 		addCurrentPageToSessionStorage(currentPage);
-		const newProperties = data.Property;
+		const newProperties = data?.Property || [];
 
-		if (Math.ceil(propertyCount / 20) === currentPage) {
+		if (!Array.isArray(newProperties) || newProperties.length === 0) {
+			hideLoadMoreButton();
+			spinner.stop();
+			toggleClassFromSpinner();
+			return;
+		}
+
+		if (
+			currentPage > 0 &&
+			Math.ceil(propertyCount / Number(APIRequest.p_PageSize)) === currentPage
+		) {
 			hideLoadMoreButton();
 		}
 
@@ -88,13 +98,20 @@ function getCurrentPageFromSessionStorage() {
 }
 
 function addLoadMoreButton(queryId) {
+	const existingButton = document.querySelector('.loadMore__button');
+	if (existingButton) {
+		existingButton.remove();
+	}
+
 	const loadMoreBtn = `<button type="button" class="button submit-button loadMore__button" data-query=${queryId}>Load more</button><div class="spinner-container visually-hidden" id="spinner-container"></div>`;
 	galleryContainerEl.insertAdjacentHTML('beforeEnd', loadMoreBtn);
 }
 
 function hideLoadMoreButton() {
 	const loadMoreBtn = document.querySelector('.loadMore__button');
-	loadMoreBtn.classList.add('visually-hidden');
+	if (loadMoreBtn) {
+		loadMoreBtn.classList.add('visually-hidden');
+	}
 }
 
 function showGalleryOptions() {

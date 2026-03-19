@@ -5,18 +5,28 @@ const APIRequest = new ResalesOnlineApi();
 
 export default async function fetchPropertyDetails(searchPropertyOptions) {
 	try {
-		const data = await APIRequest.fetchPropertyDetailsByRef(
+		const propertyDetails = await APIRequest.fetchPropertyDetailsByRef(
 			searchPropertyOptions
 		);
-		const propertyDetails = data;
 
-		if (propertyDetails.length === 0) {
+		if (
+			!propertyDetails ||
+			(Array.isArray(propertyDetails) && propertyDetails.length === 0) ||
+			(!Array.isArray(propertyDetails) &&
+				Object.keys(propertyDetails).length === 0)
+		) {
 			renderNotFoundDetailsPage();
-			return;
+			return false;
 		}
 
-		renderPropertyDetails(...propertyDetails);
+		const normalizedProperty = Array.isArray(propertyDetails)
+			? propertyDetails[0]
+			: propertyDetails;
+		renderPropertyDetails(normalizedProperty);
+		return true;
 	} catch (error) {
 		console.log(error);
+		renderNotFoundDetailsPage();
+		return false;
 	}
 }

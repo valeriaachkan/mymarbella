@@ -8,10 +8,14 @@ function initPage() {
 	spinner.start();
 	const propertyOptions = formSearchPropertyOptions();
 
-	fetchPropertyDetails(propertyOptions);
-	if (document.querySelector('.property-details__container')) {
+	if (!propertyOptions) {
 		spinner.stop();
+		return;
 	}
+
+	fetchPropertyDetails(propertyOptions).finally(() => {
+		spinner.stop();
+	});
 }
 
 if (document.querySelector('.propertyDetails-page')) {
@@ -21,14 +25,20 @@ if (document.querySelector('.propertyDetails-page')) {
 const propertyDetailsContainer = document.querySelector('.property-info');
 
 function getPropertyOptions() {
-	const queryString = window.location.search;
-	const options = queryString.split('=')[1].split('-');
+	const searchParams = new URLSearchParams(window.location.search);
 
-	return options;
+	return {
+		ref: searchParams.get('ref') || '',
+		transactionType: searchParams.get('transactionType') || '1',
+	};
 }
 
 function formSearchPropertyOptions() {
-	const [ref, transactionType] = getPropertyOptions();
+	const { ref, transactionType } = getPropertyOptions();
+	if (!ref) {
+		return null;
+	}
+
 	const searchPropertyParams = {
 		P_RefId: ref,
 		p_agency_filterid: transactionType,

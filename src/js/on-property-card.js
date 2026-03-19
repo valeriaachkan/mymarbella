@@ -3,34 +3,36 @@ import { getSearchCriteria } from '/src/propertyList';
 // window.addEventListener('click', onPropertyCardClick);
 
 export default function onPropertyCardClick(e) {
-	if (!e.target.classList.contains('property-card')) {
+	const propertyCard = e.target.closest('.property-card');
+	if (!propertyCard) {
 		return;
 	}
 
 	try {
-		const propertyOptions = getCardOptions(e);
+		const propertyOptions = getCardOptions(propertyCard);
 		goToPropertyDeatilsPage(propertyOptions);
 	} catch (error) {
 		console.log(error);
 	}
 }
 
-function getCardOptions(e) {
-	const targetProperty = e.target;
-	const propertyRef = targetProperty.getAttribute('data-reference');
+function getCardOptions(propertyCard) {
+	const propertyRef = propertyCard.getAttribute('data-reference');
 	const searchCriteria = getSearchCriteria();
 	let transactionType = '1';
 
 	if (searchCriteria) {
-		transactionType = getSearchCriteria().p_agency_filterid;
+		transactionType = searchCriteria.p_agency_filterid;
 	}
 
-	const propertyOptions = propertyRef + '-' + transactionType;
-	return propertyOptions;
+	return { propertyRef, transactionType };
 }
 
-function goToPropertyDeatilsPage(ref) {
-	const reference = JSON.stringify(ref).replaceAll('"', '');
-	const url = `propertyDetails.html?/ref=${reference}`;
+function goToPropertyDeatilsPage({ propertyRef, transactionType }) {
+	const searchParams = new URLSearchParams({
+		ref: propertyRef,
+		transactionType,
+	});
+	const url = `propertyDetails.html?${searchParams.toString()}`;
 	window.location.href = url;
 }

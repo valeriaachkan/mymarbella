@@ -13,7 +13,7 @@ if (document.querySelector('.propertyList-page')) {
 async function initPage() {
 	spinner.start();
 	let isListRendered = false;
-	const searchCriteria = getSearchCriteria();
+	const searchCriteria = getSearchCriteria() || {};
 	const currentPage = JSON.parse(sessionStorage.getItem('currentPage'));
 
 	if (currentPage) {
@@ -39,7 +39,7 @@ async function onSortTypeClick(e) {
 	const serializedData = JSON.stringify(selectedOption);
 	sessionStorage.setItem('sortType', serializedData);
 
-	const searchCriteria = getSearchCriteria();
+	const searchCriteria = getSearchCriteria() || {};
 
 	let isListRendered = false;
 	isListRendered = await fetchProperties(searchCriteria, selectedOption);
@@ -55,17 +55,14 @@ function getSearchCriteria() {
 		const searchCriteria = JSON.parse(
 			sessionStorage.getItem('propertySearchData')
 		);
+		if (!searchCriteria) {
+			return {};
+		}
 		const sortType = JSON.parse(sessionStorage.getItem('sortType'));
 
 		if (sortType) {
 			searchCriteria.P_SortType = sortType;
 			setAttributeOnSortType(sortType);
-		}
-
-		if (searchCriteria.P_MustHaveFeatures) {
-			searchCriteria.P_MustHaveFeatures = [
-				'1&' + searchCriteria.P_MustHaveFeatures.join('&'),
-			];
 		}
 
 		return searchCriteria;
