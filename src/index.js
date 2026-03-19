@@ -1,5 +1,6 @@
 import './styles/main.scss';
 import './js/gallery-slider.js';
+import $ from 'jquery';
 import ResalesOnlineApi from './js/api-service';
 import { customFormInit } from './js/form.js';
 

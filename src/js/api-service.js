@@ -6,7 +6,7 @@ export default class ResalesOnlineApi {
 
 	constructor() {
 		this.#p1 = '1014905';
-		this.#p2 = '7aca62e1865fac01c51e32fc7cc014850eb76716';
+		this.#p2 = "ac2cbfe469b93017b0b16d3d4ad22d84c2ba2949";
 		this.#baseUrl = 'https://booking-proxy-fly-io.fly.dev';
 		this.#paths = {
 			searchProperties: '/searchProperties',

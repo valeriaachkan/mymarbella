@@ -10,7 +10,7 @@
     text-align: center;
 
     @media screen and (min-width: $desktop) {
-        width: calc((100%-40px) * 0.7);
+        width: calc((100% - 40px) * 0.7);
     }
 }
 
@@ -80,7 +80,7 @@
 
 .contact-detailsNF {
     @media screen and (min-width: 900px) {
-        width: calc((100%-40px) * 0.3);
+        width: calc((100% - 40px) * 0.3);
         margin-top: 0;
     }
 }
