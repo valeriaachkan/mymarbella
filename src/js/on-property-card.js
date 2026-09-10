@@ -1,38 +1,7 @@
-import { getSearchCriteria } from '/src/propertyList';
-
-// window.addEventListener('click', onPropertyCardClick);
-
-export default function onPropertyCardClick(e) {
-	const propertyCard = e.target.closest('.property-card');
-	if (!propertyCard) {
-		return;
-	}
-
-	try {
-		const propertyOptions = getCardOptions(propertyCard);
-		goToPropertyDeatilsPage(propertyOptions);
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-function getCardOptions(propertyCard) {
-	const propertyRef = propertyCard.getAttribute('data-reference');
-	const searchCriteria = getSearchCriteria();
-	let transactionType = '1';
-
-	if (searchCriteria) {
-		transactionType = searchCriteria.p_agency_filterid;
-	}
-
-	return { propertyRef, transactionType };
-}
-
-function goToPropertyDeatilsPage({ propertyRef, transactionType }) {
-	const searchParams = new URLSearchParams({
-		ref: propertyRef,
-		transactionType,
-	});
-	const url = `propertyDetails.html?${searchParams.toString()}`;
-	window.location.href = url;
+// Keep the whole card clickable without intercepting native link behavior
+// (keyboard activation, modifier-clicks, or opening a property in a new tab).
+export default function onPropertyCardClick(event) {
+    if (event.target.closest('a, button, input, select, textarea')) return;
+    const link = event.target.closest('.property-card')?.querySelector('a[href]');
+    if (link) window.location.href = link.href;
 }

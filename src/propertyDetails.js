@@ -1,6 +1,7 @@
 import './styles/propertyDetails.scss';
 import SpinnerLoad from './js/spinner';
 import fetchPropertyDetails from './js/fetch-property-details';
+import { renderNotFoundDetailsPage } from './js/rendering';
 
 const spinner = new SpinnerLoad();
 
@@ -9,6 +10,12 @@ function initPage() {
 	const propertyOptions = formSearchPropertyOptions();
 
 	if (!propertyOptions) {
+		document.title = 'Property not specified | Zirka Real Estate';
+		const robots = document.createElement('meta');
+		robots.name = 'robots';
+		robots.content = 'noindex, follow';
+		document.head.append(robots);
+		renderNotFoundDetailsPage();
 		spinner.stop();
 		return;
 	}
@@ -21,8 +28,6 @@ function initPage() {
 if (document.querySelector('.propertyDetails-page')) {
 	initPage();
 }
-
-const propertyDetailsContainer = document.querySelector('.property-info');
 
 function getPropertyOptions() {
 	const searchParams = new URLSearchParams(window.location.search);
@@ -45,5 +50,3 @@ function formSearchPropertyOptions() {
 	};
 	return searchPropertyParams;
 }
-
-export { propertyDetailsContainer };

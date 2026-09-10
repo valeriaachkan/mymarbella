@@ -1,0 +1,44 @@
+.whatsapp-float {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: transform 150ms $o-animation-timing-function, box-shadow 150ms $o-animation-timing-function;
+
+    svg {
+        width: 28px;
+        height: 28px;
+        fill: $white;
+    }
+
+    &:hover,
+    &:focus-visible {
+        transform: scale(1.06);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    &:focus-visible {
+        outline: 3px solid $accent-color;
+        outline-offset: 3px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        right: 24px;
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+        width: 58px;
+        height: 58px;
+
+        svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

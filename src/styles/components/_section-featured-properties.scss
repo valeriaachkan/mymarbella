@@ -1,0 +1,114 @@
+.section-featured-properties {
+    padding: 50px 0;
+
+    @media screen and (min-width: $tablet) {
+        padding: 80px 0;
+    }
+}
+
+.section-featured-properties .section__title--featured {
+    text-align: center;
+    margin-bottom: 30px;
+    color: $secondary-text-color;
+
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 40px;
+    }
+}
+
+.featured-property {
+    max-width: 900px;
+    margin: 0 auto;
+
+    &__main {
+        position: relative;
+    }
+
+    &__cover {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    &__caption {
+        @include body-r();
+        margin-top: 14px;
+        font-weight: 600;
+        color: $secondary-text-color;
+    }
+
+}
+
+.featured-property__thumbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    position: relative;
+    padding: 0 24px;
+    list-style: none;
+
+    li {
+        margin: 0;
+    }
+
+    .slick-list {
+        margin: 0 -5px;
+    }
+
+    .slick-slide {
+        margin: 0 5px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 22px;
+        height: 22px;
+        background: $white;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+        z-index: 2;
+
+        &:hover,
+        &:focus-visible {
+            background: $white;
+        }
+
+        &::before {
+            font-size: 12px;
+            line-height: 1;
+            color: $accent-color-hover;
+            opacity: 1;
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+}
+
+.featured-property__thumb {
+    display: block;
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 150ms $o-animation-timing-function;
+
+    &:hover,
+    &:focus-visible {
+        box-shadow: 0 0 0 2px $accent-color;
+    }
+
+
+    @media screen and (min-width: $tablet) {
+        width: 96px;
+        height: 72px;
+    }
+}

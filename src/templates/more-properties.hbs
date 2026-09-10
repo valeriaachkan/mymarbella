@@ -3,7 +3,7 @@
      <li class="property-card" data-reference="{{this.Reference}}">
         <div class="property-thumb">
             {{#if this.Pictures}}
-                <img class="property-image" src="{{property-photo this.Pictures}}" alt="Property photo">
+                <img class="property-image" src="{{property-photo this.Pictures}}" alt="{{this.PropertyType.NameType}} in {{this.Location}}" loading="lazy" decoding="async">
             {{/if}}
             {{#if this.Price}}
                 <div class="property-price">€ {{price this.Price}}</div>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="property-content">
-            <h4 class="property-title">{{this.PropertyType.NameType}}</h4>
+            <h2 class="property-title"><a href="{{this.detailUrl}}">{{this.PropertyType.NameType}}{{#if this.Location}} in {{this.Location}}{{/if}}</a></h2>
             <p class="property-location">{{this.Location}}, {{this.Area}}, {{this.Province}}</p>
             <div class="line"></div>
             <ul class="property-features">

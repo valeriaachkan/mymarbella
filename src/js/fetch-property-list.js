@@ -29,12 +29,12 @@ async function fetchProperties(searchOptions, sortType) {
 
 		if (propertyCount > Number(APIRequest.p_PageSize) && queryId) {
 			showGalleryOptions();
-			renderPropertyList(properties);
+			renderPropertyList(properties, searchOptions?.p_agency_filterid || '1');
 			addLoadMoreButton(queryId);
 			return true;
 		}
 		showGalleryOptions();
-		renderPropertyList(properties);
+		renderPropertyList(properties, searchOptions?.p_agency_filterid || '1');
 		return true;
 	} catch (error) {
 		console.log(error);
@@ -81,7 +81,7 @@ async function onLoadMoreBtnClick(e) {
 		}
 
 		spinner.stop();
-		renderMoreProperties(newProperties);
+		renderMoreProperties(newProperties, transactionType);
 		toggleClassFromSpinner();
 	} catch (error) {
 		console.log(error);
